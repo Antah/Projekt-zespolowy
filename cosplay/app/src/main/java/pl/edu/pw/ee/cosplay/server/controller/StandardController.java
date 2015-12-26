@@ -50,7 +50,7 @@ public class StandardController<T> {
         return entity;
     }
 
-    protected void postEntity(T entity) throws IOException {
+    protected void postEntity(T entity) throws Exception {
         String url = ServerSettings.SERVER_URL + "/" + path;
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new StringHttpMessageConverter());

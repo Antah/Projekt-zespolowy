@@ -36,7 +36,7 @@ public class UserController {
         return userStandardController.getEntity(userId);
     }
 
-    public void postUser(McUser user) throws IOException {
+    public void postUser(McUser user) throws Exception {
         userStandardController.postEntity(user);
     }
 }
