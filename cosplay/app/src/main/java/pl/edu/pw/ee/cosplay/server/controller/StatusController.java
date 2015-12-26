@@ -21,27 +21,9 @@ public class StatusController {
 
     public ArrayList<McStatus> getStatus() throws IOException, ClassNotFoundException {
         return statusStandardController.getEntities();
-        /*String url = ServerSettings.SERVER_URL + "/status";
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new ByteArrayHttpMessageConverter());
-        ResponseEntity<byte[]> response = restTemplate.getForEntity(url, byte[].class);
-        if(!response.getStatusCode().equals(HttpStatus.OK))
-            throw new IOException();
-        ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(response.getBody()));
-        ArrayList<McStatus> status = (ArrayList<McStatus>) in.readObject();
-        return status;*/
     }
 
     public McStatus getStatus(Long statusId) throws IOException, ClassNotFoundException {
         return statusStandardController.getEntity(statusId);
-        /*String url = ServerSettings.SERVER_URL + "/status/" + statusId;
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new ByteArrayHttpMessageConverter());
-        ResponseEntity<byte[]> response = restTemplate.getForEntity(url, byte[].class);
-        if(!response.getStatusCode().equals(HttpStatus.OK))
-            throw new IOException();
-        ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(response.getBody()));
-        McStatus status = (McStatus) in.readObject();
-        return status;*/
     }
 }

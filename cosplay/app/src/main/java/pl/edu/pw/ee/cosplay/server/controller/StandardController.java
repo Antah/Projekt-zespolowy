@@ -14,7 +14,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import pl.edu.pw.ee.cosplay.server.ServerSettings;
-import pl.edu.pw.ee.cosplay.server.model.McUser;
 
 /**
  * Created by Michał on 2015-12-26.
@@ -35,8 +34,8 @@ public class StandardController<T> {
         if(!response.getStatusCode().equals(HttpStatus.OK))
             throw new IOException();
         ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(response.getBody()));
-        ArrayList<T> users = (ArrayList<T>) in.readObject();
-        return users;
+        ArrayList<T> entities = (ArrayList<T>) in.readObject();
+        return entities;
     }
 
     protected T getEntity(Long entityId) throws IOException, ClassNotFoundException {
@@ -47,8 +46,8 @@ public class StandardController<T> {
         if(!response.getStatusCode().equals(HttpStatus.OK))
             throw new IOException();
         ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(response.getBody()));
-        T user = (T) in.readObject();
-        return user;
+        T entity = (T) in.readObject();
+        return entity;
     }
 
     protected void postEntity(T entity) throws IOException {
