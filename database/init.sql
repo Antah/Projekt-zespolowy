@@ -23,3 +23,4 @@ CREATE TABLE users(
   FOREIGN KEY (status_id) REFERENCES status(status_id)
 );
 
+insert into users(login,password) values('test','test');
