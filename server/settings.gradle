@@ -1,5 +1,3 @@
 rootProject.name = 'CosplayREST'
 include 'CosplayModel'
 include 'CosplayServer'
-include 'CosplayClient'
-
