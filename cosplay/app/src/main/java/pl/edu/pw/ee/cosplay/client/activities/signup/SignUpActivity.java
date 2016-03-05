@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import pl.edu.pw.ee.cosplay.R;
-import pl.edu.pw.ee.cosplay.server.model.McUser;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -24,14 +23,6 @@ public class SignUpActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         String repassword = repasswordEditText.getText().toString();
         login = login.replace(" ", ""); //TODO zrobic porzadnego regexa
-
-        if(isInputDataOnClientSideValid(login, password, repassword)){
-            SignUpAsyncTask signUpAsyncTask = new SignUpAsyncTask(this);
-            McUser newUser = new McUser();
-            newUser.setLogin(login);
-            newUser.setPassword(password);
-            signUpAsyncTask.execute(newUser);
-        }
     }
 
     private boolean isInputDataOnClientSideValid(String login, String password, String repassword) {
