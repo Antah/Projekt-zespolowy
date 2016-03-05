@@ -7,14 +7,24 @@ import pl.edu.pw.ee.cosplay.rest.model.entity.McStatus;
 import pl.edu.pw.ee.cosplay.rest.model.entity.McUser;
 
 /**
- * Tu odpalamy sobie serwer (automatycznie wyszukuje sobie controllery)
+ * Klasą służąca do uruchomienia serwera.
+ * <p/>
+ * W normalnych aplikacjach korzystających z Springa lub Javy Enterprise potrzebny jest dodatkowy
+ * serwer aplikacji, którego zarządzanie jest dość kłopotliwe.
+ * <p/>
+ * <p/>
+ * Nasza aplikacjia korzysta z SpringBoot, który dostarcza 'samokonfigurujący' się serwer aplikcaji
+ * postawiony na Tomcacie, polega to na tym, że klasy z odpowiednią adnotacją np @RestController są
+ * automatycznie dołączane do jego konfiguracji przy starcie.
+ * <p/>
+ * Konfiguracja:
+ * 1) application.properties - ustawienia połączenia z bazą danych
+ * 2) CORSFilter - ustawienia pewnych filtrów połączenia
  */
 @SpringBootApplication
 @EntityScan(basePackageClasses = {McStatus.class, McUser.class})
 public class Server {
-
     public static void main(final String[] args) {
         SpringApplication.run(Server.class, args);
     }
-
 }

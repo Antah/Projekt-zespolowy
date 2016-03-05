@@ -7,13 +7,21 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.edu.pw.ee.cosplay.rest.model.entity.McUser;
 
 /**
- * DAO - Data Access Object. Właściwie wystarczy rozszerzyć CrudRepository, które samo się zaimplementuje za nas
- * pozwalając na 4 podstawowe czynności Crud.
+ * DAO - Data Access Object.
+ * Spring za nas zaimplementuje interface dostarczając standardowe operacje CRUD na encji.
+ * <p/>
+ * Poniżej dodałem funkcję, która również "automatycznie" zostanie zaimplementowana na podstawie SQL'a
+ * napisanego w języku JPA.
+ * <p/>
+ * JPA pozwala nam na wyabstrachowanie programu od bazy danych, na której pracujemy (będzie działało dla Oracle, MySQL,
+ * M$ i tak dalej...
  */
 
 @Transactional
 public interface UserDAO extends CrudRepository<McUser, Long> {
+
     @Query("SELECT u FROM McUser u WHERE u.login = :login")
     McUser getUserByLogin(@Param("login") String login);
+
 }
 

@@ -4,7 +4,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by Michał on 2015-12-24.
+ * Mapowanie tabeli users z mysql. Stara dobra Java. Implementuje Serializable,
+ * abysmy mogli sobie zserializować obiekt i przesłać do klienta na Androidzie
+ * <p/>
+ * Jako, że nazwy naszych tabelek mogą być zyt ogólne dobrą praktyką jest dodanie przedrostka
+ * Mc* od Model cosplay.
+ * <p/>
+ * Klasa wygląda na dość długą, ale pamiętajcie, że setery/gettery oraz toString możemy generować automatycznie!
  */
 
 @Entity

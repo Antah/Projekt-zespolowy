@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Tego lepiej nie dotykać :P
+ * Ustawienia filtrów na połączenia. Raczej klasa.
  */
 @Component
 public class CORSFilter implements Filter {

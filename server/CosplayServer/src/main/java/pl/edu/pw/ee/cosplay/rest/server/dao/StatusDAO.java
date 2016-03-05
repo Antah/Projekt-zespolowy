@@ -5,8 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.edu.pw.ee.cosplay.rest.model.entity.McStatus;
 
 /**
- * DAO - Data Access Object. Właściwie wystarczy rozszerzyć CrudRepository, które samo się zaimplementuje za nas
- * pozwalając na 4 podstawowe czynności Crud.
+ * DAO - Data Access Object.
+ * Spring za nas zaimplementuje interface dostarczając standardowe operacje CRUD na encji.
  */
 
 @Transactional
