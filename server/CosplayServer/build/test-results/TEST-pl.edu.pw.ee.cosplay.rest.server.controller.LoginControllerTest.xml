@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pl.edu.pw.ee.cosplay.rest.server.controller.LoginControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-05-19T20:34:08" hostname="laptop-michala" time="93.49">
+  <properties/>
+  <testcase name="loginTest" classname="pl.edu.pw.ee.cosplay.rest.server.controller.LoginControllerTest" time="93.49"/>
+  <system-out><![CDATA[22:34:08.856 [Test worker] DEBUG o.s.web.client.RestTemplate - Created POST request for "http://127.0.0.1:8080/login"
+22:34:08.884 [Test worker] DEBUG o.s.web.client.RestTemplate - Setting request Accept header to [application/octet-stream, application/json, application/octet-stream, application/*+json, */*, */*]
+22:34:08.892 [Test worker] DEBUG o.s.web.client.RestTemplate - Writing [[B@60ce686c] using [org.springframework.http.converter.ByteArrayHttpMessageConverter@4a1442ee]
+22:34:08.930 [Test worker] DEBUG o.s.web.client.RestTemplate - POST request for "http://127.0.0.1:8080/login" resulted in 200 (OK)
+22:34:08.932 [Test worker] DEBUG o.s.web.client.RestTemplate - Reading [[B] as "application/octet-stream;charset=UTF-8" using [org.springframework.http.converter.ByteArrayHttpMessageConverter@4a1442ee]
+22:34:09.042 [Test worker] DEBUG o.s.web.client.RestTemplate - Created POST request for "http://127.0.0.1:8080/observed"
+22:34:09.043 [Test worker] DEBUG o.s.web.client.RestTemplate - Setting request Accept header to [text/plain, application/json, application/*+json, */*]
+22:34:09.047 [Test worker] DEBUG o.s.web.client.RestTemplate - Writing [[B@675192fa] using [org.springframework.http.converter.ByteArrayHttpMessageConverter@4a1442ee]
+22:35:41.826 [Test worker] DEBUG o.s.web.client.RestTemplate - POST request for "http://127.0.0.1:8080/observed" resulted in 200 (OK)
+22:35:41.826 [Test worker] DEBUG o.s.web.client.RestTemplate - Reading [java.lang.String] as "text/plain;charset=UTF-8" using [org.springframework.http.converter.StringHttpMessageConverter@ef48314]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -8,4 +8,5 @@ package pl.edu.pw.ee.cosplay.rest.model.constants;
 public class ErrorMessage {
     public static final String WRONG_PASSWORD = "Password doesn't match for login.";
     public static final String WRONG_LOGIN = "There isn't any user with typed login.";
+    public static final String NOT_LOGGED = "You're not logged to application";
 }

@@ -3,8 +3,7 @@ package pl.edu.pw.ee.cosplay.rest.server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McStatus;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McUser;
+import pl.edu.pw.ee.cosplay.rest.model.entity.*;
 
 /**
  * Klasą służąca do uruchomienia serwera.
@@ -22,7 +21,10 @@ import pl.edu.pw.ee.cosplay.rest.model.entity.McUser;
  * 2) CORSFilter - ustawienia pewnych filtrów połączenia
  */
 @SpringBootApplication
-@EntityScan(basePackageClasses = {McStatus.class, McUser.class})
+@EntityScan(basePackageClasses = {
+        McUserEntity.class, McCharacteerEntity.class, McPhotoEntity.class, McBinaryPhotoEntity.class,
+        McFranchiseEntity.class, McCommentEntity.class, McObservationEntity.class, McRatingEntity.class
+})
 public class Server {
     public static void main(final String[] args) {
         SpringApplication.run(Server.class, args);

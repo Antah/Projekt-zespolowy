@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McUser;
+import pl.edu.pw.ee.cosplay.rest.model.entity.McUserEntity;
 
 /**
  * DAO - Data Access Object.
@@ -18,10 +18,10 @@ import pl.edu.pw.ee.cosplay.rest.model.entity.McUser;
  */
 
 @Transactional
-public interface UserDAO extends CrudRepository<McUser, Long> {
+public interface UserDAO extends CrudRepository<McUserEntity, Long> {
 
-    @Query("SELECT u FROM McUser u WHERE u.login = :login")
-    McUser getUserByLogin(@Param("login") String login);
+    @Query("SELECT u FROM McUserEntity u WHERE u.username = :username")
+    McUserEntity getUserByLogin(@Param("username") String username);
 
 }
 
