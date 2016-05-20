@@ -11,7 +11,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerOutput;
-import pl.edu.pw.ee.cosplay.rest.model.controller.observed.ObservedInputData;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
 
 import java.net.URI;
 
@@ -27,24 +28,29 @@ public class LoginControllerTest {
             URI uri = UriComponentsBuilder
                     .fromHttpUrl(UrlData.SERVER_IP).port(UrlData.PORT).path(UrlData.LOGIN_PATH).build().toUri();
 
-            LoginControllerInput loginInput = new LoginControllerInput("test", "test");
-            byte[] input = SerializationUtils.serialize(loginInput);
+            LoginControllerInput input = new LoginControllerInput();
+            input.setUserName("test");
+            input.setPassword("test");
+
+            byte[] binaryInput = SerializationUtils.serialize(input);
 
             restTemplate.getMessageConverters().add(new ByteArrayHttpMessageConverter());
 
-            ResponseEntity<byte[]> response =  restTemplate.postForEntity(uri, input, byte[].class);
+            ResponseEntity<byte[]> response =  restTemplate.postForEntity(uri, binaryInput, byte[].class);
 
             LoginControllerOutput loginOutput = (LoginControllerOutput) SerializationUtils.deserialize(response.getBody());
 
             uri = UriComponentsBuilder
-                    .fromHttpUrl(UrlData.SERVER_IP).port(UrlData.PORT).path(UrlData.OBSERVED_PATH).build().toUri();
+                    .fromHttpUrl(UrlData.SERVER_IP).port(UrlData.PORT).path(UrlData.ADD_PHOTO_PATH).build().toUri();
 
-            ObservedInputData observedInput = new ObservedInputData(loginOutput.getAuthorizationData(), "test");
-            input = SerializationUtils.serialize(observedInput);
+            AddPhotoInput input2 = new AddPhotoInput();
+            input2.setAuthenticationData(loginOutput.getAuthenticationData());
 
-            ResponseEntity<String> response2 =  restTemplate.postForEntity(uri, input, String.class);
+            binaryInput = SerializationUtils.serialize(input2);
 
-            String observedOutput = response2.getBody();
+            ResponseEntity<byte[]> response2 =  restTemplate.postForEntity(uri, binaryInput, byte[].class);
+
+            AddPhotoOutput output2 = (AddPhotoOutput) SerializationUtils.deserialize(response2.getBody());
 
 
         } catch (HttpClientErrorException e){

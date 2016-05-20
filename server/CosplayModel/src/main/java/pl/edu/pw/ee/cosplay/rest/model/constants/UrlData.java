@@ -11,5 +11,7 @@ public class UrlData {
 
     public static final String LOGIN_PATH = "/login";
 
-    public static final String OBSERVED_PATH = "/observed";
+    public static final String ADD_PHOTO_PATH = "/addPhoto";
+
+    public static final String GET_PHOTOS_LIST_PATH = "/getPhotosList";
 }

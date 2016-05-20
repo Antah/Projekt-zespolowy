@@ -12,18 +12,11 @@ public class LoginControllerOutput implements Serializable{
 
     private AuthenticationData data;
 
-    private McUserEntity user;
-
-    public LoginControllerOutput(AuthenticationData data, McUserEntity user) {
-        this.data = data;
-        this.user = user;
-    }
-
-    public AuthenticationData getAuthorizationData() {
+    public AuthenticationData getAuthenticationData() {
         return data;
     }
 
-    public McUserEntity getUser() {
-        return user;
+    public void setAuthenticationData(AuthenticationData data) {
+        this.data = data;
     }
 }

@@ -28,8 +28,8 @@ public class LoginController {
     private UserDAO userDAO;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody byte[] loginInput) {
-        LoginControllerInput input = (LoginControllerInput) SerializationUtils.deserialize(loginInput);
+    public ResponseEntity<?> login(@RequestBody byte[] byteInput) {
+        LoginControllerInput input = (LoginControllerInput) SerializationUtils.deserialize(byteInput);
         final McUserEntity user = userDAO.getUserByLogin(input.getUserName());
         if (user == null) {
             return userNotFound();
@@ -61,9 +61,10 @@ public class LoginController {
         logger.info("User found, password correct");
         AuthenticationData data = LoggedUsers.generateTokenAndAddToLoggedUsers(user);
         user.setPasswd(null);
-        LoginControllerOutput output = new LoginControllerOutput(data, user);
-        final byte[] serializedOutput = SerializationUtils.serialize(output);
-        return new ResponseEntity<>(serializedOutput, HttpStatus.OK);
+        LoginControllerOutput output = new LoginControllerOutput();
+        output.setAuthenticationData(data);
+        final byte[] byteOutput = SerializationUtils.serialize(output);
+        return new ResponseEntity<>(byteOutput, HttpStatus.OK);
     }
 }
 
