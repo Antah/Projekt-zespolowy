@@ -18,6 +18,7 @@ public class McCommentEntity implements Serializable {
 
 
     @Id
+    @GeneratedValue
     @Column(name = "comment_id")
     public Integer getCommentId() {
         return commentId;

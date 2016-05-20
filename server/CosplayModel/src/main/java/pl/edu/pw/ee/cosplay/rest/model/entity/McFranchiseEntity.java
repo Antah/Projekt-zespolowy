@@ -15,6 +15,7 @@ public class McFranchiseEntity implements Serializable {
 
 
     @Id
+    @GeneratedValue
     @Column(name = "franchise_id")
     public Integer getFranchiseId() {
         return franchiseId;

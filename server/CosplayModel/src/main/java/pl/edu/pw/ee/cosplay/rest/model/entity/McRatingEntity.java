@@ -19,6 +19,7 @@ public class McRatingEntity implements Serializable {
 
 
     @Id
+    @GeneratedValue
     @Column(name = "rating_id")
     public Integer getRatingId() {
         return ratingId;

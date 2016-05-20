@@ -1,5 +1,6 @@
 package pl.edu.pw.ee.cosplay.rest.server.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.SerializationUtils;
@@ -11,7 +12,17 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
+import pl.edu.pw.ee.cosplay.rest.model.entity.McBinaryPhotoEntity;
+import pl.edu.pw.ee.cosplay.rest.model.entity.McCharacteerEntity;
+import pl.edu.pw.ee.cosplay.rest.model.entity.McFranchiseEntity;
+import pl.edu.pw.ee.cosplay.rest.model.entity.McPhotoEntity;
+import pl.edu.pw.ee.cosplay.rest.server.dao.BinaryPhotoDAO;
+import pl.edu.pw.ee.cosplay.rest.server.dao.CharacteerDAO;
+import pl.edu.pw.ee.cosplay.rest.server.dao.FranchiseDAO;
+import pl.edu.pw.ee.cosplay.rest.server.dao.PhotoDAO;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
+
+import java.sql.Date;
 
 @RestController()
 @RequestMapping(UrlData.ADD_PHOTO_PATH)
@@ -25,7 +36,7 @@ public class AddPhotoController {
             AddPhotoOutput output = new AddPhotoOutput();
 
             //TODO: Implementacja
-            mockOutput(output);
+            mockOutput(input, output);
 
             byte[] byteOutput = SerializationUtils.serialize(output);
             return new ResponseEntity<>(byteOutput,HttpStatus.OK);
@@ -34,8 +45,46 @@ public class AddPhotoController {
         }
     }
 
-    private void mockOutput(AddPhotoOutput output) {
-        output.setAddedPhotoId(1);
+    @Autowired
+    BinaryPhotoDAO binaryPhotoDAO;
+
+    @Autowired
+    PhotoDAO photoDAO;
+
+    @Autowired
+    FranchiseDAO franchiseDAO;
+
+    @Autowired
+    CharacteerDAO characteerDAO;
+
+    private void mockOutput(AddPhotoInput input, AddPhotoOutput output) {
+
+        McBinaryPhotoEntity binaryPhotoEntity = new McBinaryPhotoEntity();
+        binaryPhotoEntity.setBinaryData(input.getPhotoBinaryData());
+        binaryPhotoDAO.save(binaryPhotoEntity);
+
+        McPhotoEntity photoEntity = new McPhotoEntity();
+        photoEntity.setDescription(input.getPhotoDescription());
+        photoEntity.setUploadDate(new Date(System.currentTimeMillis()));
+        photoEntity.setPhotoBinaryPhotoId(binaryPhotoEntity.getBinaryPhotoId());
+        photoEntity.setUsername(input.getAuthenticationData().getUsername());
+        photoDAO.save(photoEntity);
+
+        for(String franchise : input.getFranchisesList()){
+            McFranchiseEntity franchiseEntity = new McFranchiseEntity();
+            franchiseEntity.setFranchiseName(franchise);
+            franchiseEntity.setPhotoId(photoEntity.getPhotoId());
+            franchiseDAO.save(franchiseEntity);
+        }
+
+        for(String character : input.getCharactersList()){
+            McCharacteerEntity characteerEntity = new McCharacteerEntity();
+            characteerEntity.setCharacteerName(character);
+            characteerEntity.setPhotoId(photoEntity.getPhotoId());
+            characteerDAO.save(characteerEntity);
+        }
+
+        output.setAddedPhotoId(photoEntity.getPhotoId());
     }
 
 }

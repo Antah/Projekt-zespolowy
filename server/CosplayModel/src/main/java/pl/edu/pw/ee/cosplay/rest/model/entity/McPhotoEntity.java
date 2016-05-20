@@ -19,6 +19,7 @@ public class McPhotoEntity implements Serializable {
 
 
     @Id
+    @GeneratedValue
     @Column(name = "photo_id")
     public Integer getPhotoId() {
         return photoId;

@@ -15,6 +15,7 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
 
 import java.net.URI;
+import java.util.HashSet;
 
 /**
  * Created by Micha³ on 2016-05-18.
@@ -29,8 +30,8 @@ public class LoginControllerTest {
                     .fromHttpUrl(UrlData.SERVER_IP).port(UrlData.PORT).path(UrlData.LOGIN_PATH).build().toUri();
 
             LoginControllerInput input = new LoginControllerInput();
-            input.setUserName("test");
-            input.setPassword("test");
+            input.setUserName("Shafear");
+            input.setPassword("password");
 
             byte[] binaryInput = SerializationUtils.serialize(input);
 
@@ -45,6 +46,11 @@ public class LoginControllerTest {
 
             AddPhotoInput input2 = new AddPhotoInput();
             input2.setAuthenticationData(loginOutput.getAuthenticationData());
+            input2.setCharactersList(new HashSet<String>());
+            input2.setFranchisesList(new HashSet<String>());
+            byte[] inputBytes = SerializationUtils.serialize("Shafear");
+            input2.setPhotoBinaryData(inputBytes);
+            input2.setPhotoDescription("Some description");
 
             binaryInput = SerializationUtils.serialize(input2);
 

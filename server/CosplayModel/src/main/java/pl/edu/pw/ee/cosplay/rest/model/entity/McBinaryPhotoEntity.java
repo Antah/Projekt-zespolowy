@@ -14,6 +14,7 @@ public class McBinaryPhotoEntity implements Serializable {
     private byte[] binaryData;
 
     @Id
+    @GeneratedValue
     @Column(name = "binary_photo_id")
     public Integer getBinaryPhotoId() {
         return binaryPhotoId;

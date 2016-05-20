@@ -15,6 +15,7 @@ public class McCharacteerEntity implements Serializable {
     private Integer photoId;
 
     @Id
+    @GeneratedValue
     @Column(name = "characteer_id")
     public Integer getCharacteerId() {
         return characteerId;

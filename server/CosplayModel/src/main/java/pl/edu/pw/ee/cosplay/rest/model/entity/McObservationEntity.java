@@ -1,9 +1,6 @@
 package pl.edu.pw.ee.cosplay.rest.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,6 +14,7 @@ public class McObservationEntity implements Serializable {
     private String observer;
 
     @Id
+    @GeneratedValue
     @Column(name = "observation_id")
     public Integer getObservationId() {
         return observationId;
