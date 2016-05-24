@@ -27,7 +27,7 @@ public class LoginControllerTest {
         try {
             final RestTemplate restTemplate = new RestTemplate();
             URI uri = UriComponentsBuilder
-                    .fromHttpUrl(UrlData.SERVER_IP).port(UrlData.PORT).path(UrlData.LOGIN_PATH).build().toUri();
+                    .fromHttpUrl(UrlData.getServerIp()).port(UrlData.getPORT()).path(UrlData.LOGIN_PATH).build().toUri();
 
             LoginControllerInput input = new LoginControllerInput();
             input.setUserName("Shafear");
@@ -42,7 +42,7 @@ public class LoginControllerTest {
             LoginControllerOutput loginOutput = (LoginControllerOutput) SerializationUtils.deserialize(response.getBody());
 
             uri = UriComponentsBuilder
-                    .fromHttpUrl(UrlData.SERVER_IP).port(UrlData.PORT).path(UrlData.ADD_PHOTO_PATH).build().toUri();
+                    .fromHttpUrl(UrlData.getServerIp()).port(UrlData.getPORT()).path(UrlData.ADD_PHOTO_PATH).build().toUri();
 
             AddPhotoInput input2 = new AddPhotoInput();
             input2.setAuthenticationData(loginOutput.getAuthenticationData());
