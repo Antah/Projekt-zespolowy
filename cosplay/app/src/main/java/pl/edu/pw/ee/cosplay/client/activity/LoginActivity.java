@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import pl.edu.pw.ee.cosplay.R;
+import pl.edu.pw.ee.cosplay.client.fragment.AddPhotoFragment;
 import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerInput;
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
         (new ServerTask<LoginControllerInput, LoginControllerOutput, LoginActivity>(this, input, UrlData.LOGIN_PATH) {
             @Override protected void doSomethingWithOutput(LoginControllerOutput o) {
-                Intent intent = new Intent(activity, AddPhotoActivity.class);
+                Intent intent = new Intent(activity, MenuActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(AUTHENTICATION_DATA, o.getAuthenticationData());
                 intent.putExtras(bundle);

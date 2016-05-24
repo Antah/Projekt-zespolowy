@@ -56,22 +56,18 @@ public class GetPhotosListController {
             simplePhoto.setCharactersList(new HashSet<String>());
             simplePhoto.setCommentsNumber(0);
             simplePhoto.setPhotoBinaryData(
-                    binaryPhotoDAO.findOne(
-                            photo.getPhotoId()
-                    ).getBinaryData()
+                    binaryPhotoDAO.findOne(1).getBinaryData()
             );
             simplePhoto.setAvatarBinaryData(
-                    binaryPhotoDAO.findOne(
-                            photo.getPhotoId()
-                    ).getBinaryData()
+                    binaryPhotoDAO.findOne(1).getBinaryData()
             );
             simplePhoto.setUsername(photo.getUsername());
             simplePhoto.setUploadDate(photo.getUploadDate());
             RatingData ratingData = new RatingData();
-            ratingData.setGeneralRate(5);
-            ratingData.setArrangementRate(5);
-            ratingData.setQualityRate(5);
-            ratingData.setSimilarityRate(5);
+            ratingData.setGeneralRate(0);
+            ratingData.setArrangementRate(0);
+            ratingData.setQualityRate(0);
+            ratingData.setSimilarityRate(0);
             simplePhoto.setRatingData(ratingData);
 
             simplePhotoDataList.add(simplePhoto);

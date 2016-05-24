@@ -22,7 +22,7 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 public abstract class ServerTask<Input extends Serializable,Output extends Serializable, UsedActivity extends Activity> extends AsyncTask<Void, Void, Object> {
 
     protected UsedActivity activity;
-    private Input input;
+    protected Input input;
     private String servicePath;
     private ProgressDialog dialog;
     private Boolean hasErrors = false;

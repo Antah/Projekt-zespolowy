@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".client.activity.LoginActivity" />
-        <activity android:name=".client.activity.AddPhotoActivity"/>
+        <activity android:name=".client.activity.MenuActivity"></activity>
     </application>
 
 </manifest>

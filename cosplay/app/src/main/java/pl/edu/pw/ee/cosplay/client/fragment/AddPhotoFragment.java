@@ -1,16 +1,17 @@
-package pl.edu.pw.ee.cosplay.client.activity;
+package pl.edu.pw.ee.cosplay.client.fragment;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import org.apache.commons.lang.SerializationUtils;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -18,6 +19,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 import pl.edu.pw.ee.cosplay.R;
+import pl.edu.pw.ee.cosplay.client.activity.LoginActivity;
 import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
 import pl.edu.pw.ee.cosplay.client.photo.ImageUtils;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
@@ -25,30 +27,42 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
 import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
 
-public class AddPhotoActivity extends AppCompatActivity {
+public class AddPhotoFragment extends Fragment implements View.OnClickListener{
 
-    private Activity activity = this;
     private ImageView selectedPhotoImageView;
     private AuthenticationData authenticationData;
     private EditText charactersEditText;
     private EditText descriptionEditText;
     private EditText franchisesEditText;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_photo);
-
-        selectedPhotoImageView = (ImageView) findViewById(R.id.selectedPhotoImageView);
-        charactersEditText = (EditText) findViewById(R.id.charactersEditText);
-        descriptionEditText = (EditText) findViewById(R.id.descriptionEditText);
-        franchisesEditText = (EditText) findViewById(R.id.franchisesEditText);
-
-        authenticationData =
-                (AuthenticationData) getIntent().getSerializableExtra(LoginActivity.AUTHENTICATION_DATA);
+    public AddPhotoFragment() {
+        // Required empty public constructor
     }
 
-    public void selectPhoto(View view) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View v =  inflater.inflate(R.layout.fragment_add_photo, container, false);
+
+        selectedPhotoImageView = (ImageView) v.findViewById(R.id.selectedPhotoImageView);
+        charactersEditText = (EditText) v.findViewById(R.id.charactersEditText);
+        descriptionEditText = (EditText) v.findViewById(R.id.descriptionEditText);
+        franchisesEditText = (EditText) v.findViewById(R.id.franchisesEditText);
+
+        authenticationData =
+                (AuthenticationData) getActivity().getIntent().getSerializableExtra(LoginActivity.AUTHENTICATION_DATA);
+
+        Button addPhotoButton = (Button) v.findViewById(R.id.addPhotoButton);
+        addPhotoButton.setOnClickListener(this);
+
+        Button selectPhotoButton = (Button) v.findViewById(R.id.selectPhotoButton);
+        selectPhotoButton.setOnClickListener(this);
+
+        return v;
+    }
+
+    public void selectPhotoButtonAction() {
         Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
         getIntent.setType("image/*");
 
@@ -69,7 +83,7 @@ public class AddPhotoActivity extends AppCompatActivity {
                 return;
             }
             try {
-                InputStream photoInputStream = activity.getContentResolver().openInputStream(data.getData());
+                InputStream photoInputStream = getActivity().getContentResolver().openInputStream(data.getData());
                 selectedPhotoImageView.setImageBitmap(BitmapFactory.decodeStream(photoInputStream));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -77,10 +91,19 @@ public class AddPhotoActivity extends AppCompatActivity {
         }
     }
 
-    public void addPhotoButtonAction(View view) {
-        AddPhotoInput input = getAddPhotoInput();
+    public void addPhotoButtonAction() {
+        (new ServerTask<AddPhotoInput, AddPhotoOutput, Activity>(getActivity(), null, UrlData.ADD_PHOTO_PATH) {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
 
-        (new ServerTask<AddPhotoInput, AddPhotoOutput, AddPhotoActivity>(this, input, UrlData.ADD_PHOTO_PATH) {
+            @Override
+            protected Object doInBackground(Void[] params) {
+                this.input = getAddPhotoInput();
+                return super.doInBackground(params);
+            }
+
             @Override protected void doSomethingWithOutput(AddPhotoOutput o) {
                 Toast.makeText(activity, o.toString(), Toast.LENGTH_LONG).show();
             }
@@ -101,7 +124,6 @@ public class AddPhotoActivity extends AppCompatActivity {
 
         byte[] bytes = ImageUtils.getBytesFromImageView(selectedPhotoImageView);
         input.setPhotoBinaryData(bytes);
-        ImageUtils.setImageViewByBytesArray(selectedPhotoImageView, bytes);
 
         return input;
     }
@@ -111,5 +133,19 @@ public class AddPhotoActivity extends AppCompatActivity {
         String[] resultList = s.split(", ");
         result.addAll(Arrays.asList(resultList));
         return result;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.addPhotoButton:{
+                addPhotoButtonAction();
+                break;
+            }
+            case R.id.selectPhotoButton:{
+                selectPhotoButtonAction();
+                break;
+            }
+        }
     }
 }

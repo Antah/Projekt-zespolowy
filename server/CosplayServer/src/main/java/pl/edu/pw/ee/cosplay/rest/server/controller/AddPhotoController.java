@@ -12,14 +12,8 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McBinaryPhotoEntity;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McCharacteerEntity;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McFranchiseEntity;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McPhotoEntity;
-import pl.edu.pw.ee.cosplay.rest.server.dao.BinaryPhotoDAO;
-import pl.edu.pw.ee.cosplay.rest.server.dao.CharacteerDAO;
-import pl.edu.pw.ee.cosplay.rest.server.dao.FranchiseDAO;
-import pl.edu.pw.ee.cosplay.rest.server.dao.PhotoDAO;
+import pl.edu.pw.ee.cosplay.rest.model.entity.*;
+import pl.edu.pw.ee.cosplay.rest.server.dao.*;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
 import java.sql.Date;
@@ -56,6 +50,9 @@ public class AddPhotoController {
 
     @Autowired
     CharacteerDAO characteerDAO;
+
+    @Autowired
+    RatingDAO ratingDAO;
 
     private void mockOutput(AddPhotoInput input, AddPhotoOutput output) {
 
