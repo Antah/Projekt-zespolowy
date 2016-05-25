@@ -19,6 +19,11 @@ public class GetPhotosListInput implements Serializable{
 
     private Integer rangeLast;
 
+    //jak null to nie uwzglêdniamy
+    //jak nie null to zwracamy listê przefiltrowan¹ przez
+    //u¿ytkowników obserwowanych (observed) przez obserwuj¹cego (observer)
+    private String observer; //
+
     public HashSet<String> getFiltrByFranchiseList() {
         return filtrByFranchiseList;
     }
@@ -57,5 +62,13 @@ public class GetPhotosListInput implements Serializable{
 
     public void setRangeLast(Integer rangeLast) {
         this.rangeLast = rangeLast;
+    }
+
+    public String getObserver() {
+        return observer;
+    }
+
+    public void setObserver(String observer) {
+        this.observer = observer;
     }
 }

@@ -23,7 +23,8 @@ public class SimplePhotoData implements Serializable{
 
     private byte[] photoBinaryData;
 
-    private byte[] avatarBinaryData;
+    //mo¿e byæ null, je¿eli u¿ytkownik, który wstawi³ zdjêcie nie ma awataru
+    private byte[] avatarBinaryData = null;
 
     private Date uploadDate;
 
