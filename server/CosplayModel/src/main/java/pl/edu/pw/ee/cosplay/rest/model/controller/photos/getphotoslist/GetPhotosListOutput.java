@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class GetPhotosListOutput implements Serializable{
 
-    private ArrayList<SimplePhotoData> simplePhotoDataList;
+    private ArrayList<SimplePhotoData> simplePhotoDataList = new ArrayList<>();
     private Boolean areThereNextPhotos;
 
     public ArrayList<SimplePhotoData> getSimplePhotoDataList() {

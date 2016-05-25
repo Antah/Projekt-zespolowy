@@ -11,9 +11,9 @@ public class SimplePhotoData implements Serializable{
 
     private String username;
 
-    private HashSet<String> franchisesList;
+    private HashSet<String> franchisesList = new HashSet<>();
 
-    private HashSet<String> charactersList;
+    private HashSet<String> charactersList = new HashSet<>();
 
     private Integer commentsNumber;
 
