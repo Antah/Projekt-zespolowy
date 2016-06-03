@@ -8,9 +8,9 @@ import java.util.HashSet;
  */
 public class GetPhotosListInput implements Serializable{
 
-    private HashSet<String> filtrByFranchiseList;
+    private HashSet<String> filtrByFranchiseList = new HashSet<>();
 
-    private HashSet<String> filtrByCharactersList;
+    private HashSet<String> filtrByCharactersList = new HashSet<>();
 
     private PhotosOrder order;
 
@@ -24,6 +24,10 @@ public class GetPhotosListInput implements Serializable{
     //jak nie null to zwracamy listê przefiltrowan¹ przez
     //u¿ytkowników obserwowanych (observed) przez obserwuj¹cego (observer)
     private String observer; //
+
+    //jak null to nie uwzglêdniamy
+    //jak nie null to filtrujemy zdjêcia wedle autora (username)
+    private String author;
 
     public HashSet<String> getFiltrByFranchiseList() {
         return filtrByFranchiseList;
@@ -71,5 +75,13 @@ public class GetPhotosListInput implements Serializable{
 
     public void setObserver(String observer) {
         this.observer = observer;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
