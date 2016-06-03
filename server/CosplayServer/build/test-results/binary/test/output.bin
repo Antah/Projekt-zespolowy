@@ -1,0 +1,10 @@
+w17:09:16.851 [Test worker] DEBUG o.s.web.client.RestTemplate - Created POST request for "http://127.0.0.1:8080/login"
+Æ17:09:16.883 [Test worker] DEBUG o.s.web.client.RestTemplate - Setting request Accept header to [application/octet-stream, application/json, application/octet-stream, application/*+json, */*, */*]
+¦17:09:16.903 [Test worker] DEBUG o.s.web.client.RestTemplate - Writing [[B@a54305] using [org.springframework.http.converter.ByteArrayHttpMessageConverter@4fa52f27]
+„17:09:17.014 [Test worker] DEBUG o.s.web.client.RestTemplate - POST request for "http://127.0.0.1:8080/login" resulted in 200 (OK)
+Ë17:09:17.017 [Test worker] DEBUG o.s.web.client.RestTemplate - Reading [[B] as "application/octet-stream;charset=UTF-8" using [org.springframework.http.converter.ByteArrayHttpMessageConverter@4fa52f27]
+z17:09:17.053 [Test worker] DEBUG o.s.web.client.RestTemplate - Created POST request for "http://127.0.0.1:8080/addPhoto"
+Æ17:09:17.054 [Test worker] DEBUG o.s.web.client.RestTemplate - Setting request Accept header to [application/octet-stream, application/json, application/octet-stream, application/*+json, */*, */*]
+¨17:09:17.061 [Test worker] DEBUG o.s.web.client.RestTemplate - Writing [[B@5c786e3d] using [org.springframework.http.converter.ByteArrayHttpMessageConverter@4fa52f27]
+‡17:09:17.259 [Test worker] DEBUG o.s.web.client.RestTemplate - POST request for "http://127.0.0.1:8080/addPhoto" resulted in 200 (OK)
+Ë17:09:17.260 [Test worker] DEBUG o.s.web.client.RestTemplate - Reading [[B] as "application/octet-stream;charset=UTF-8" using [org.springframework.http.converter.ByteArrayHttpMessageConverter@4fa52f27]

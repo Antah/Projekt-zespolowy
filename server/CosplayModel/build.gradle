@@ -1,0 +1,23 @@
+group 'pl.edu.pw.ee.cosplay'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+jar {
+    baseName = 'CosplayModel'
+    version = '0.0.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final')
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

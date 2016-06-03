@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".client.fragment.AllPhotosFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/franchiseEditText"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="Franchises"
+            android:textSize="@dimen/abc_text_size_small_material" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/characterEditText"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="Characters"
+            android:textSize="@dimen/abc_text_size_small_material" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sortSpinner"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:spinnerMode="dropdown" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SHOW"
+            android:id="@+id/showAndFilterButton"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/simplePhotosListView"
+        android:layout_above="@+id/button4"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1" />
+
+</LinearLayout>
