@@ -14,7 +14,8 @@ public class GetPhotosListInput implements Serializable{
 
     private PhotosOrder order;
 
-    //range okreœlaj¹ w jakim zakrecie <first; last> maj¹ byæ zwrócone wyniki
+    //range okreœlaj¹ w jakim zakrecie <first; last> maj¹ byæ zwrócone wyniki, liczymy od zera
+	//czyli <1,5> zwróci dok³adnie piêæ pierwszych wyników
     private Integer rangeFirst;
 
     private Integer rangeLast;
