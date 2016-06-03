@@ -13,7 +13,8 @@
         android:id="@+id/selectedPhotoImageView"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher"
+        android:visibility="invisible" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -73,5 +74,5 @@
         android:text="Add photo!"
         android:id="@+id/addPhotoButton"
         android:layout_gravity="center_horizontal"
-        />
+        android:visibility="invisible" />
 </LinearLayout>

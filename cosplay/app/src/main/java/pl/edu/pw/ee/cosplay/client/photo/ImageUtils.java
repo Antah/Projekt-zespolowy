@@ -3,6 +3,7 @@ package pl.edu.pw.ee.cosplay.client.photo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;

@@ -28,10 +28,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Observed by you"
-            android:id="@+id/button"
+            android:id="@+id/observedPhotosButton"
             android:layout_weight="1"
             android:textSize="10dp"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:onClick="observedPhotosFragment"/>
 
         <Button
             android:layout_width="wrap_content"

@@ -64,7 +64,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="1"
-                            android:id="@+id/textView25"
+                            android:id="@+id/generalTextView"
                             android:textColor="#000000"
                             android:textSize="60px"
                             android:enabled="false"
@@ -100,7 +100,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="1"
-                            android:id="@+id/textView27"
+                            android:id="@+id/similarityTextView"
                             android:textColor="#000000"
                             android:textSize="60px"
                             android:enabled="false"
@@ -136,7 +136,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="1"
-                            android:id="@+id/textView29"
+                            android:id="@+id/qualityTextView"
                             android:textColor="#000000"
                             android:textSize="60px"
                             android:enabled="false"
@@ -172,7 +172,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:text="1"
-                            android:id="@+id/textView31"
+                            android:id="@+id/arrangementTextView"
                             android:textColor="#000000"
                             android:textSize="60px"
                             android:enabled="false"
@@ -198,7 +198,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageView6"
+                        android:id="@+id/simplePhotoImageView"
                         android:src="@mipmap/image_placeholder"
                         android:layout_weight="1"
                         android:layout_gravity="center"
@@ -214,100 +214,176 @@
                         android:layout_margin="5dp"
                         android:background="#32ffffff">
 
-                        <ImageButton
-                            android:layout_width="@dimen/avatar_dimen"
-                            android:layout_height="@dimen/avatar_dimen"
-                            android:id="@+id/imageButton6"
-                            android:src="@mipmap/user"
-                            android:scaleType="fitCenter" />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageButton
+                                android:layout_width="@dimen/avatar_dimen"
+                                android:layout_height="@dimen/avatar_dimen"
+                                android:id="@+id/avatarImageButton"
+                                android:src="@mipmap/user"
+                                android:scaleType="fitCenter"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                                android:text="User"
+                                android:id="@+id/userNameTextView"
+                                android:layout_gravity="center"
+                                android:layout_margin="0dp"
+                                android:textSize="16dp"
+                                android:layout_weight="1" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" >
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:layout_margin="7dp">
 
                             <LinearLayout
                                 android:orientation="horizontal"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1" >
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="0dp" >
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                                    android:text="User"
-                                    android:id="@+id/userNameTextView"
-                                    android:layout_gravity="left|center_vertical"
-                                    android:layout_weight="1"
-                                    android:layout_margin="5dp" />
+                                    android:text="Date: "
+                                    android:id="@+id/textView5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:layout_height="match_parent"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                                    android:text="13:45 25-04-2015"
-                                    android:id="@+id/textView33"
-                                    android:layout_gravity="center_vertical|right"
+                                    android:text="16:54 21-04-2015"
+                                    android:id="@+id/dateTextView"
+                                    android:layout_gravity="center_vertical"
                                     android:layout_weight="1"
-                                    android:textAlignment="textEnd"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="16dp"
-                                    android:layout_marginBottom="5dp" />
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:orientation="horizontal"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1" >
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="0dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                                    android:text="Fr:"
+                                    android:text="Fr: "
                                     android:id="@+id/textView34"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="1"
-                                    android:layout_margin="5dp"
-                                    android:textSize="10dp" />
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:layout_height="match_parent"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                     android:text="Franchise"
-                                    android:id="@+id/textView35"
+                                    android:id="@+id/franchiseTextView"
                                     android:layout_gravity="center_vertical"
                                     android:layout_weight="1"
-                                    android:layout_margin="5dp"
-                                    android:textSize="10dp" />
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="0dp">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                                    android:text="Ch:"
+                                    android:text="Ch: "
                                     android:id="@+id/textView36"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="1"
-                                    android:layout_margin="5dp"
-                                    android:textSize="10dp" />
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_width="match_parent"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:layout_height="match_parent"
                                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                                     android:text="Character"
-                                    android:id="@+id/textView37"
                                     android:layout_gravity="center_vertical"
                                     android:layout_weight="1"
-                                    android:layout_margin="5dp"
-                                    android:textSize="10dp" />
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart"
+                                    android:id="@+id/characterTextView" />
                             </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="0dp" >
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                                    android:text="Comments: "
+                                    android:id="@+id/textView6"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:ellipsize="end"
+                                    android:maxLines="1"
+                                    android:layout_height="match_parent"
+                                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                                    android:text="0"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="1"
+                                    android:layout_margin="0dp"
+                                    android:textSize="11dp"
+                                    android:textAlignment="textStart"
+                                    android:id="@+id/commentsTextView" />
+                            </LinearLayout>
+
                         </LinearLayout>
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

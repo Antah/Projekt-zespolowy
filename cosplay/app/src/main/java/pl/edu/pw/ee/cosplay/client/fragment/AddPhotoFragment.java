@@ -34,6 +34,7 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
     private EditText charactersEditText;
     private EditText descriptionEditText;
     private EditText franchisesEditText;
+    private View v;
 
     public AddPhotoFragment() {
         // Required empty public constructor
@@ -43,7 +44,7 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v =  inflater.inflate(R.layout.fragment_add_photo, container, false);
+        v =  inflater.inflate(R.layout.fragment_add_photo, container, false);
 
         selectedPhotoImageView = (ImageView) v.findViewById(R.id.selectedPhotoImageView);
         charactersEditText = (EditText) v.findViewById(R.id.charactersEditText);
@@ -85,6 +86,8 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
             try {
                 InputStream photoInputStream = getActivity().getContentResolver().openInputStream(data.getData());
                 selectedPhotoImageView.setImageBitmap(BitmapFactory.decodeStream(photoInputStream));
+                v.findViewById(R.id.addPhotoButton).setVisibility(View.VISIBLE);
+                v.findViewById(R.id.selectedPhotoImageView).setVisibility(View.VISIBLE);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -136,8 +139,8 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()){
+    public void onClick(View vi) {
+        switch (vi.getId()){
             case R.id.addPhotoButton:{
                 addPhotoButtonAction();
                 break;

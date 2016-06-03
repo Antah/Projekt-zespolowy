@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">CosplayBOOK</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string-array name="photoOrder">
+        <item>Newest</item>
+        <item>Most comments</item>
+        <item>Best general</item>
+        <item>Best similarity</item>
+        <item>Best quality</item>
+        <item>Best arrangement</item>
+        <item>Oldest</item>
+        <item>Worst general</item>
+        <item>Worst similarity</item>
+        <item>Worst quality</item>
+        <item>Worst arrangement</item>
+    </string-array>
 </resources>
