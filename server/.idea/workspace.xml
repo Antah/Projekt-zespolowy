@@ -153,32 +153,64 @@
         <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotosListController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetPhotosListInput.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphotoslist/GetPhotosListInput.java">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37527594">
-              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.5">
+              <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetPhotoInput.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphoto/GetPhotoInput.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding>
-                <element signature="e#2102#2103#0" expanded="true" />
-                <element signature="e#2131#2132#0" expanded="true" />
-                <element signature="e#2175#2176#0" expanded="true" />
-                <element signature="e#2211#2212#0" expanded="true" />
+                <element signature="e#204#205#0" expanded="true" />
+                <element signature="e#234#235#0" expanded="true" />
+                <element signature="e#281#282#0" expanded="true" />
+                <element signature="e#319#320#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginControllerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java">
+      <file leaf-file-name="GetPhotoController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotoController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddVoteController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddVoteController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddPhotoController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddPhotoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="64" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -190,8 +222,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit3 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -878,13 +910,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/authentication/CustomAuthenticationEntryPoint.java" />
-        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/server/security/AuthenticationData.java" />
-        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/AuthenticationData.java" />
-        <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/security/LoggedUsers.java" />
-        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/secutiry/AuthenticationData.java" />
-        <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/ObservedByController.java" />
-        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/login/observed/ObservedInputData.java" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/ObservedInputData.java" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/observed/ObservedInputData.java" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/constants/ErrorMessage.java" />
@@ -921,14 +946,21 @@
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McObservationEntity.java" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McPhotoEntity.java" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McRatingEntity.java" />
-        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/constants/UrlData.java" />
         <option value="$PROJECT_DIR$/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java" />
         <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddPhotoController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/eb2fae09-a085-453b-adb8-86d61d39ed68/console.sql" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/SimplePhotoData.java" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphotoslist/GetPhotosListOutput.java" />
-        <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotosListController.java" />
         <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphotoslist/GetPhotosListInput.java" />
+        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addvote/AddVoteOutput.java" />
+        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addvote/AddVoteInput.java" />
+        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphoto/GetPhotoOutput.java" />
+        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/CommentData.java" />
+        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphoto/GetPhotoInput.java" />
+        <option value="$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/constants/UrlData.java" />
+        <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddVoteController.java" />
+        <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotoController.java" />
+        <option value="$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotosListController.java" />
       </list>
     </option>
   </component>
@@ -950,10 +982,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="738" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -996,6 +1027,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CosplayREST" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1413,7 +1458,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="getphotoslist" />
+              <option name="myItemId" value="getphoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CosplayREST" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CosplayModel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="addvote" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1494,7 +1581,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="GetPhotos&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphotoslist/GetPhotosListOutput.java&#10;Controller&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotosListController.java&#10;login&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java&#10;Input&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addphoto/AddPhotoInput.java&#10;loginC&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java&#10;McPhoto&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McPhotoEntity.java&#10;McPho&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McBinaryPhotoEntity.java&#10;McBina&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McBinaryPhotoEntity.java&#10;LoginC&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java&#10;Auth&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/security/AuthenticationData.java&#10;Obser&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/ObservedController.java&#10;logi&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java&#10;Login&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/login/LoginControllerInput.java&#10;Error&#9;PSI&#9;JAVA://pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage&#10;log&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java&#10;lo&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java&#10;grad&#9;ACTION&#9;ActivateGradleToolWindow&#10;gradle&#9;ACTION&#9;ActivateGradleToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="Controller&#9;PSI&#9;JAVA://pl.edu.pw.ee.cosplay.rest.server.controller.LoginController&#10;Controlle&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddPhotoController.java&#10;Contro&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddVoteController.java&#10;GetPhotos&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphotoslist/GetPhotosListOutput.java&#10;login&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java&#10;Input&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addphoto/AddPhotoInput.java&#10;loginC&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java&#10;McPhoto&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McPhotoEntity.java&#10;McPho&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McBinaryPhotoEntity.java&#10;McBina&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McBinaryPhotoEntity.java&#10;LoginC&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java&#10;Auth&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/security/AuthenticationData.java&#10;Obser&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/ObservedController.java&#10;logi&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java&#10;Login&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/login/LoginControllerInput.java&#10;Error&#9;PSI&#9;JAVA://pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage&#10;log&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java&#10;lo&#9;FILE&#9;file://E:/Users/Michal/Git/Projekt-zespolowy/server/CosplayServer/src/test/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginControllerTest.java&#10;grad&#9;ACTION&#9;ActivateGradleToolWindow&#10;gradle&#9;ACTION&#9;ActivateGradleToolWindow" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -1915,12 +2002,12 @@
       <workItem from="1464702598944" duration="599000" />
       <workItem from="1464942785120" duration="1792000" />
       <workItem from="1464959357119" duration="725000" />
-      <workItem from="1464973431670" duration="202000" />
+      <workItem from="1464973431670" duration="4653000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38681000" />
+    <option name="totallyTimeSpent" value="43132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1932,70 +2019,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="1" y="0" width="1364" height="738" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.49573562" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34154177" sideWeight="0.50852877" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25975975" sideWeight="0.20689656" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22547974" sideWeight="0.79310346" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12153518" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16897655" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29372936" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.4978678" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.4978678" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25975975" sideWeight="0.20689656" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243865" sideWeight="0.79310346" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12153518" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24309815" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42184153" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42184153" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19057816" sideWeight="0.49573562" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27087796" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27087796" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977098" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3858521" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26688102" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25975975" sideWeight="0.20689656" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30229008" sideWeight="0.79310346" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1480916" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -2020,55 +2076,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.4.RELEASE/77456f960e9d68ee33956955fb3a9af05b930602/spring-webmvc-4.2.4.RELEASE-sources.jar!/org/springframework/web/servlet/FrameworkServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="979" column="0" selection-start-line="979" selection-start-column="0" selection-end-line="979" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.2.4.RELEASE/77456f960e9d68ee33956955fb3a9af05b930602/spring-webmvc-4.2.4.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3042328">
-          <caret line="895" column="0" selection-start-line="895" selection-start-column="0" selection-end-line="895" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.4.RELEASE/bcc167b48ae8c9478eb4a8f0e99d095dbf38013f/spring-web-4.2.4.RELEASE-sources.jar!/org/springframework/web/client/RestTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="48" selection-start-line="139" selection-start-column="48" selection-end-line="139" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_65/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="237" column="12" selection-start-line="237" selection-start-column="12" selection-end-line="237" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.4.RELEASE/bcc167b48ae8c9478eb4a8f0e99d095dbf38013f/spring-web-4.2.4.RELEASE-sources.jar!/org/springframework/http/converter/ByteArrayHttpMessageConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="64" selection-start-line="36" selection-start-column="64" selection-end-line="36" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.4.RELEASE/bcc167b48ae8c9478eb4a8f0e99d095dbf38013f/spring-web-4.2.4.RELEASE-sources.jar!/org/springframework/http/converter/AbstractHttpMessageConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="82" selection-start-line="46" selection-start-column="82" selection-end-line="46" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.2.4.RELEASE/bcc167b48ae8c9478eb4a8f0e99d095dbf38013f/spring-web-4.2.4.RELEASE-sources.jar!/org/springframework/http/converter/HttpMessageConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="37" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2219,13 +2226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addphoto/AddPhotoInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.11.2.RELEASE/33efeac9732261efa4c7eacb3d7db4d6674936ac/spring-data-commons-1.11.2.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2268,13 +2268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/constants/UrlData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/security/LoggedUsers.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2286,13 +2279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddPhotoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -2310,14 +2296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/RatingData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="77" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/entity/McBinaryPhotoEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2332,25 +2310,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/constants/ErrorMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/SimplePhotoData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2377,24 +2340,170 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotosListController.java">
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/RatingData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addphoto/AddPhotoInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addvote/AddVoteInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#985#986#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1100#1101#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphotoslist/GetPhotosListInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37527594">
-          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
           <folding>
             <element signature="e#2102#2103#0" expanded="true" />
             <element signature="e#2131#2132#0" expanded="true" />
             <element signature="e#2175#2176#0" expanded="true" />
             <element signature="e#2211#2212#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/SimplePhotoData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/CommentData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="76" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="76" />
+          <folding>
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#429#430#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#867#868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/addvote/AddVoteOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphoto/GetPhotoOutput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="64" selection-start-line="16" selection-start-column="64" selection-end-line="16" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/constants/UrlData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="60" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayModel/src/main/java/pl/edu/pw/ee/cosplay/rest/model/controller/photos/getphoto/GetPhotoInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#234#235#0" expanded="true" />
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddPhotoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="64" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/AddVoteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/GetPhotosListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CosplayServer/src/main/java/pl/edu/pw/ee/cosplay/rest/server/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5">
+          <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>

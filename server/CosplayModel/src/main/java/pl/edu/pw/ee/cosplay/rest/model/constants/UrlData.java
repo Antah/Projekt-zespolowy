@@ -11,7 +11,11 @@ public class UrlData {
 
     public static final String LOGIN_PATH = "/login";
 
+    public static final String ADD_VOTE_PATH = "/addVote";
+
     public static final String ADD_PHOTO_PATH = "/addPhoto";
+
+    public static final String GET_PHOTO_PATH = "/getPhoto";
 
     public static final String GET_PHOTOS_LIST_PATH = "/getPhotosList";
 
