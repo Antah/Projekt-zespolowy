@@ -26,8 +26,8 @@ import java.util.List;
 public class GetPhotosListController {
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody byte[] observedInput) {
-        GetPhotosListInput input = (GetPhotosListInput) SerializationUtils.deserialize(observedInput);
+    public ResponseEntity<?> login(@RequestBody byte[] byteInput) {
+        GetPhotosListInput input = (GetPhotosListInput) SerializationUtils.deserialize(byteInput);
         GetPhotosListOutput output = new GetPhotosListOutput();
 
         //TODO implementacja
