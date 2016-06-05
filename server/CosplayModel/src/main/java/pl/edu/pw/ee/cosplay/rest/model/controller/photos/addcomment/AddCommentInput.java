@@ -3,16 +3,17 @@ package pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment;
 import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
 
 import java.io.Serializable;
-import java.util.HashSet;
 
 /**
  * Created by Micha³ on 2016-05-19.
  */
-public class AddCommentInput implements Serializable{
+public class AddCommentInput implements Serializable {
 
     private AuthenticationData authenticationData;
 
     private String comment = "";
+
+    private Integer photoId;
 
     public AuthenticationData getAuthenticationData() {
         return authenticationData;
@@ -28,5 +29,13 @@ public class AddCommentInput implements Serializable{
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public Integer getPhotoId() {
+        return photoId;
+    }
+
+    public void setPhotoId(Integer photoId) {
+        this.photoId = photoId;
     }
 }
