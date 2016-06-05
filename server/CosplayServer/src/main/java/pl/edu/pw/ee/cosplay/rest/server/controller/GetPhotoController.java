@@ -28,7 +28,7 @@ import java.util.HashSet;
 public class GetPhotoController {
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody byte[] byteInput) {
+    public ResponseEntity<?> getPhoto(@RequestBody byte[] byteInput) {
         GetPhotoInput input = (GetPhotoInput) SerializationUtils.deserialize(byteInput);
         GetPhotoOutput output = new GetPhotoOutput();
 

@@ -21,7 +21,7 @@ import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 public class AddVoteController {
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody byte[] byteInput) {
+    public ResponseEntity<?> addVote(@RequestBody byte[] byteInput) {
         AddVoteInput input = (AddVoteInput) SerializationUtils.deserialize(byteInput);
         if(LoggedUsers.isLogged(input.getAuthenticationData())){
 
