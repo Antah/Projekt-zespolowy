@@ -17,12 +17,7 @@ public class LoggedUsers {
         Random random = new Random();
         String token = String.valueOf((user.getUsername() + random.nextInt() + System.currentTimeMillis()).hashCode());
         AuthenticationData data = new AuthenticationData(user.getUsername(), token);
-        if (loggedUsers.get(user.getUsername()) != null) {
-            loggedUsers.remove(user.getUsername());
-            loggedUsers.put(user.getUsername(), token);
-        } else {
-            loggedUsers.put(user.getUsername(), token);
-        }
+        loggedUsers.put(user.getUsername(), token);
         return data;
     }
 
