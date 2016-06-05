@@ -5,6 +5,8 @@ package pl.edu.pw.ee.cosplay.rest.model.constants;
  */
 public class UrlData {
 
+    public static final String ADD_COMMENT_CONTROLLER = "/addComment";
+
     private static String SERVER_IP = "http://127.0.0.1";
 
     private static Integer PORT = 8080;
