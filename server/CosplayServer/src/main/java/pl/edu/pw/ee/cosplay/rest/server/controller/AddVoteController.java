@@ -1,5 +1,6 @@
 package pl.edu.pw.ee.cosplay.rest.server.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.SerializationUtils;
@@ -11,7 +12,11 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addvote.AddVoteInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addvote.AddVoteOutput;
+import pl.edu.pw.ee.cosplay.rest.model.entity.McRatingEntity;
+import pl.edu.pw.ee.cosplay.rest.server.dao.RatingDAO;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
+
+import java.sql.Date;
 
 /**
  * AddVoteController
@@ -20,10 +25,19 @@ import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 @RequestMapping(UrlData.ADD_VOTE_PATH)
 public class AddVoteController {
 
+    @Autowired
+    private RatingDAO ratingDAO;
+
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addVote(@RequestBody byte[] byteInput) {
         AddVoteInput input = (AddVoteInput) SerializationUtils.deserialize(byteInput);
         if(LoggedUsers.isLogged(input.getAuthenticationData())){
+
+            final McRatingEntity rating = ratingDAO.getRatingByPhotoAndUser(
+                    input.getAuthenticationData().getUsername(), input.getPhotoId());
+            if (rating != null) {
+                return alreadyRated();
+            }
 
             AddVoteOutput output = new AddVoteOutput();
 
@@ -37,10 +51,18 @@ public class AddVoteController {
         }
     }
 
+    private ResponseEntity<?> alreadyRated() {
+        return new ResponseEntity<>(ErrorMessage.USER_ALREADY_VOTED, HttpStatus.BAD_REQUEST);
+    }
+
     private void mockOutput(AddVoteInput input, AddVoteOutput output) {
-        //sprawdzić czy dany użytkownik nie dodał już czasem oceny dla danego zdjęcia (wtedy odpowiedni status 4xx + komunikat o błędzie)
-        //jak nie dodał to dodać ocenę i zwrócić pusty output (nie potrzebuję żadnej informacji zwrotnej oprócz statusu
-        //200
+        McRatingEntity ratingEntity = new McRatingEntity();
+        ratingEntity.setUsername(input.getAuthenticationData().getUsername());
+        ratingEntity.setPhotoId(input.getPhotoId());
+        ratingEntity.setRatingSimilarity(input.getRatingData().getSimilarityRate());
+        ratingEntity.setRatingQuality(input.getRatingData().getQualityRate());
+        ratingEntity.setRatingArrangemnt(input.getRatingData().getArrangementRate());
+        ratingDAO.save(ratingEntity);
     }
 }
 
