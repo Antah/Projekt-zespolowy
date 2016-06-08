@@ -1,5 +1,6 @@
 package pl.edu.pw.ee.cosplay.rest.server.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.SerializationUtils;
@@ -11,7 +12,11 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentOutput;
+import pl.edu.pw.ee.cosplay.rest.model.entity.McCommentEntity;
+import pl.edu.pw.ee.cosplay.rest.server.dao.CommentDAO;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
+
+import java.sql.Date;
 
 @RestController()
 @RequestMapping(UrlData.ADD_COMMENT_CONTROLLER)
@@ -21,6 +26,10 @@ public class AddCommentController {
     public ResponseEntity<?> addComment(@RequestBody byte[] byteInput) {
         AddCommentInput input = (AddCommentInput) SerializationUtils.deserialize(byteInput);
         if (LoggedUsers.isLogged(input.getAuthenticationData())) {
+
+            if(input.getComment().length() > 256){
+                 return commentTooLong();
+            }
 
             AddCommentOutput output = new AddCommentOutput();
 
@@ -34,8 +43,21 @@ public class AddCommentController {
         }
     }
 
-    private void mockOutput(AddCommentInput input, AddCommentOutput output) {
+    private ResponseEntity<?> commentTooLong() {
+        return new ResponseEntity<>(ErrorMessage.COMMENT_TOO_LONG, HttpStatus.BAD_REQUEST);
+    }
 
+
+    @Autowired
+    private CommentDAO commentDAO;
+
+    private void mockOutput(AddCommentInput input, AddCommentOutput output) {
+        McCommentEntity commentEntity = new McCommentEntity();
+        commentEntity.setContent(input.getComment());
+        commentEntity.setUsername(input.getAuthenticationData().getUsername());
+        commentEntity.setCommentDate(new Date(System.currentTimeMillis()));
+        commentEntity.setPhotoId(input.getPhotoId());
+        commentDAO.save(commentEntity);
     }
 
 }

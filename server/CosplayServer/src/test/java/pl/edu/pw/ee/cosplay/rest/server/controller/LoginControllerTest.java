@@ -18,7 +18,7 @@ import java.net.URI;
 import java.util.HashSet;
 
 /**
- * Created by Micha³ on 2016-05-18.
+ * Created by Michaï¿½ on 2016-05-18.
  */
 public class LoginControllerTest {
 
