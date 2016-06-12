@@ -50,7 +50,7 @@ public class GetPhotoController {
         output.setFranchisesList(new HashSet<String>());
         output.setCharactersList(new HashSet<String>());
         output.setPhotoBinaryData(
-                binaryPhotoDAO.findOne(1).getBinaryData()
+                binaryPhotoDAO.findOne(22).getBinaryData()
         );
 
         output.setUsername(photo.getUsername());

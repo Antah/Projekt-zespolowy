@@ -25,7 +25,7 @@ public class MenuActivity extends Activity{
 
     public static final String GET_PHOTOS_LIST_OUTPUT = "GET_PHOTOS_LIST_OUTPUT";
     public static final String GET_PHOTOS_LIST_INPUT = "GET_PHOTOS_LIST_INPUT";
-    public static final String GET_PHOTO_OUTPUT = "GET_PHOTO_OUTPUT";
+    public static final String GET_PHOTO_ID = "GET_PHOTO_ID";
     public static final Integer RANGE = 4;
 
     @Override

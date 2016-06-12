@@ -1,4 +1,4 @@
-SET GLOBAL max_allowed_packet = 1024*1024*1024;
+SET GLOBAL max_allowed_packet = 1024*1024*1024*1024;
 
 drop table if exists rating;
 drop table if exists comment;

@@ -63,18 +63,11 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
         simplePhotoImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                (new ServerTask<GetPhotoInput, GetPhotoOutput, MenuActivity>(activity, getPhotoInput, UrlData.GET_PHOTO_PATH) {
-
-                    @Override
-                    protected void doSomethingWithOutput(GetPhotoOutput o) {
                         Intent intent = new Intent(activity, PhotoActivity.class);
                         Bundle bundle = new Bundle();
-                        o.setPhotoBinaryData(getPhotosListOutput.getSimplePhotoDataList().get(position).getPhotoBinaryData());
-                        bundle.putSerializable(MenuActivity.GET_PHOTO_OUTPUT, o);
+                        bundle.putSerializable(MenuActivity.GET_PHOTO_ID, getPhotoInput);
                         intent.putExtras(bundle);
                         activity.startActivity(intent);
-                    }
-                }).execute();
             }
         });
 

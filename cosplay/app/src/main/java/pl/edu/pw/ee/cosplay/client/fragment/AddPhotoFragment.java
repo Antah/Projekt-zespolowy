@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -20,11 +19,15 @@ import java.util.HashSet;
 
 import pl.edu.pw.ee.cosplay.R;
 import pl.edu.pw.ee.cosplay.client.activity.LoginActivity;
+import pl.edu.pw.ee.cosplay.client.activity.MenuActivity;
+import pl.edu.pw.ee.cosplay.client.activity.PhotoActivity;
 import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
 import pl.edu.pw.ee.cosplay.client.utils.Utils;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoInput;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoOutput;
 import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
 
 public class AddPhotoFragment extends Fragment implements View.OnClickListener{
@@ -108,7 +111,13 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
             }
 
             @Override protected void doSomethingWithOutput(AddPhotoOutput o) {
-                Toast.makeText(activity, o.toString(), Toast.LENGTH_LONG).show();
+                final GetPhotoInput getPhotoInput = new GetPhotoInput();
+                getPhotoInput.setPhotoId(o.getAddedPhotoId());
+                Intent intent = new Intent(activity, PhotoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(MenuActivity.GET_PHOTO_ID, getPhotoInput);
+                intent.putExtras(bundle);
+                activity.startActivity(intent);
             }
         }).execute();
     }

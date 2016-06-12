@@ -14,6 +14,7 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentIn
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentOutput;
 import pl.edu.pw.ee.cosplay.rest.model.entity.McCommentEntity;
 import pl.edu.pw.ee.cosplay.rest.server.dao.CommentDAO;
+import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
 import java.sql.Date;
 
@@ -24,7 +25,7 @@ public class AddCommentController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addComment(@RequestBody byte[] byteInput) {
         AddCommentInput input = (AddCommentInput) SerializationUtils.deserialize(byteInput);
-        if (true) {
+        if (LoggedUsers.isLogged(input.getAuthenticationData())) {
 
             if (input.getComment().length() > 256) {
                 return commentTooLong();
