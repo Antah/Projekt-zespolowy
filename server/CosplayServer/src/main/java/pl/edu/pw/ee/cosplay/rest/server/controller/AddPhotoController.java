@@ -1,6 +1,5 @@
 package pl.edu.pw.ee.cosplay.rest.server.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.SerializationUtils;
@@ -12,20 +11,22 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
-import pl.edu.pw.ee.cosplay.rest.model.entity.*;
-import pl.edu.pw.ee.cosplay.rest.server.dao.*;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McBinaryPhotoEntity;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McCharacteerEntity;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McFranchiseEntity;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McPhotoEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
 import java.sql.Date;
 
 @RestController()
 @RequestMapping(UrlData.ADD_PHOTO_PATH)
-public class AddPhotoController {
+public class AddPhotoController extends AutowiredController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody byte[] byteInput) {
         AddPhotoInput input = (AddPhotoInput) SerializationUtils.deserialize(byteInput);
-        if(LoggedUsers.isLogged(input.getAuthenticationData())){
+        if (LoggedUsers.isLogged(input.getAuthenticationData())) {
 
             AddPhotoOutput output = new AddPhotoOutput();
 
@@ -33,26 +34,12 @@ public class AddPhotoController {
             mockOutput(input, output);
 
             byte[] byteOutput = SerializationUtils.serialize(output);
-            return new ResponseEntity<>(byteOutput,HttpStatus.OK);
+            return new ResponseEntity<>(byteOutput, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(ErrorMessage.NOT_LOGGED, HttpStatus.UNAUTHORIZED);
         }
     }
 
-    @Autowired
-    BinaryPhotoDAO binaryPhotoDAO;
-
-    @Autowired
-    PhotoDAO photoDAO;
-
-    @Autowired
-    FranchiseDAO franchiseDAO;
-
-    @Autowired
-    CharacteerDAO characteerDAO;
-
-    @Autowired
-    RatingDAO ratingDAO;
 
     private void mockOutput(AddPhotoInput input, AddPhotoOutput output) {
 
@@ -63,21 +50,21 @@ public class AddPhotoController {
         McPhotoEntity photoEntity = new McPhotoEntity();
         photoEntity.setDescription(input.getPhotoDescription());
         photoEntity.setUploadDate(new Date(System.currentTimeMillis()));
-        photoEntity.setPhotoBinaryPhotoId(binaryPhotoEntity.getBinaryPhotoId());
-        photoEntity.setUsername(input.getAuthenticationData().getUsername());
-        photoDAO.save(photoEntity);
+        photoEntity.setBinaryPhotoByPhotoBinaryPhotoId(binaryPhotoEntity);
+        photoEntity.setUserByUsername(userDAO.getUserByLogin(input.getAuthenticationData().getUsername()));
+        photoEntity = photoDAO.save(photoEntity);
 
-        for(String franchise : input.getFranchisesList()){
+        for (String franchise : input.getFranchisesList()) {
             McFranchiseEntity franchiseEntity = new McFranchiseEntity();
             franchiseEntity.setFranchiseName(franchise);
-            franchiseEntity.setPhotoId(photoEntity.getPhotoId());
+            franchiseEntity.setPhotoByPhotoId(photoEntity);
             franchiseDAO.save(franchiseEntity);
         }
 
-        for(String character : input.getCharactersList()){
+        for (String character : input.getCharactersList()) {
             McCharacteerEntity characteerEntity = new McCharacteerEntity();
             characteerEntity.setCharacteerName(character);
-            characteerEntity.setPhotoId(photoEntity.getPhotoId());
+            characteerEntity.setPhotoByPhotoId(photoEntity);
             characteerDAO.save(characteerEntity);
         }
 

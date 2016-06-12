@@ -1,0 +1,131 @@
+package pl.edu.pw.ee.cosplay.rest.server.entity;
+
+import javax.persistence.*;
+import java.sql.Date;
+import java.util.Collection;
+
+/**
+ * Created by Micha³ on 2016-06-12.
+ */
+@Entity
+@Table(name = "photo", schema = "", catalog = "cosplay")
+public class McPhotoEntity {
+    private Integer photoId;
+    private Date uploadDate;
+    private String description;
+    private Collection<McCharacteerEntity> characteersByPhotoId;
+    private Collection<McCommentEntity> commentsByPhotoId;
+    private Collection<McFranchiseEntity> franchisesByPhotoId;
+    private McUserEntity userByUsername;
+    private McBinaryPhotoEntity binaryPhotoByPhotoBinaryPhotoId;
+    private Collection<McRatingEntity> ratingsByPhotoId;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "photo_id")
+    public Integer getPhotoId() {
+        return photoId;
+    }
+
+    public void setPhotoId(Integer photoId) {
+        this.photoId = photoId;
+    }
+
+    @Basic
+    @Column(name = "upload_date")
+    public Date getUploadDate() {
+        return uploadDate;
+    }
+
+    public void setUploadDate(Date uploadDate) {
+        this.uploadDate = uploadDate;
+    }
+
+    @Basic
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        McPhotoEntity that = (McPhotoEntity) o;
+
+        if (photoId != null ? !photoId.equals(that.photoId) : that.photoId != null) return false;
+        if (uploadDate != null ? !uploadDate.equals(that.uploadDate) : that.uploadDate != null) return false;
+        if (description != null ? !description.equals(that.description) : that.description != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = photoId != null ? photoId.hashCode() : 0;
+        result = 31 * result + (uploadDate != null ? uploadDate.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        return result;
+    }
+
+    @OneToMany(cascade = {}, mappedBy = "photoByPhotoId")
+    public Collection<McCharacteerEntity> getCharacteersByPhotoId() {
+        return characteersByPhotoId;
+    }
+
+    public void setCharacteersByPhotoId(Collection<McCharacteerEntity> characteersByPhotoId) {
+        this.characteersByPhotoId = characteersByPhotoId;
+    }
+
+    @OneToMany(cascade = {}, mappedBy = "photoByPhotoId")
+    public Collection<McCommentEntity> getCommentsByPhotoId() {
+        return commentsByPhotoId;
+    }
+
+    public void setCommentsByPhotoId(Collection<McCommentEntity> commentsByPhotoId) {
+        this.commentsByPhotoId = commentsByPhotoId;
+    }
+
+    @OneToMany(cascade = {}, mappedBy = "photoByPhotoId")
+    public Collection<McFranchiseEntity> getFranchisesByPhotoId() {
+        return franchisesByPhotoId;
+    }
+
+    public void setFranchisesByPhotoId(Collection<McFranchiseEntity> franchisesByPhotoId) {
+        this.franchisesByPhotoId = franchisesByPhotoId;
+    }
+
+    @ManyToOne(cascade = {})
+    @JoinColumn(name = "username", referencedColumnName = "username", nullable = true, insertable = true, updatable = true, table = "")
+    public McUserEntity getUserByUsername() {
+        return userByUsername;
+    }
+
+    public void setUserByUsername(McUserEntity userByUsername) {
+        this.userByUsername = userByUsername;
+    }
+
+    @ManyToOne(cascade = {})
+    @JoinColumn(name = "photo_binary_photo_id", referencedColumnName = "binary_photo_id", nullable = true, insertable = true, updatable = true, table = "")
+    public McBinaryPhotoEntity getBinaryPhotoByPhotoBinaryPhotoId() {
+        return binaryPhotoByPhotoBinaryPhotoId;
+    }
+
+    public void setBinaryPhotoByPhotoBinaryPhotoId(McBinaryPhotoEntity binaryPhotoByPhotoBinaryPhotoId) {
+        this.binaryPhotoByPhotoBinaryPhotoId = binaryPhotoByPhotoBinaryPhotoId;
+    }
+
+    @OneToMany(cascade = {}, mappedBy = "photoByPhotoId")
+    public Collection<McRatingEntity> getRatingsByPhotoId() {
+        return ratingsByPhotoId;
+    }
+
+    public void setRatingsByPhotoId(Collection<McRatingEntity> ratingsByPhotoId) {
+        this.ratingsByPhotoId = ratingsByPhotoId;
+    }
+}

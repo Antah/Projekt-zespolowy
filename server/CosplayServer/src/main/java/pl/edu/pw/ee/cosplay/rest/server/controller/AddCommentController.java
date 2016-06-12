@@ -1,6 +1,5 @@
 package pl.edu.pw.ee.cosplay.rest.server.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.SerializationUtils;
@@ -12,15 +11,14 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentOutput;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McCommentEntity;
-import pl.edu.pw.ee.cosplay.rest.server.dao.CommentDAO;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McCommentEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
 import java.sql.Date;
 
 @RestController()
 @RequestMapping(UrlData.ADD_COMMENT_CONTROLLER)
-public class AddCommentController {
+public class AddCommentController extends AutowiredController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addComment(@RequestBody byte[] byteInput) {
@@ -49,15 +47,12 @@ public class AddCommentController {
     }
 
 
-    @Autowired
-    private CommentDAO commentDAO;
-
     private void mockOutput(AddCommentInput input, AddCommentOutput output) {
         McCommentEntity commentEntity = new McCommentEntity();
         commentEntity.setContent(input.getComment());
-        commentEntity.setUsername(input.getAuthenticationData().getUsername());
+        commentEntity.setUserByUsername(userDAO.getUserByLogin(input.getAuthenticationData().getUsername()));
         commentEntity.setCommentDate(new Date(System.currentTimeMillis()));
-        commentEntity.setPhotoId(input.getPhotoId());
+        commentEntity.setPhotoByPhotoId(photoDAO.findOne(input.getPhotoId()));
         commentDAO.save(commentEntity);
     }
 

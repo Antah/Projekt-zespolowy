@@ -1,18 +1,17 @@
-package pl.edu.pw.ee.cosplay.rest.model.entity;
+package pl.edu.pw.ee.cosplay.rest.server.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
+
 
 /**
- * Created by Micha≈Ç on 2016-05-14.
+ * Created by Micha≥ on 2016-06-12.
  */
 @Entity
 @Table(name = "characteer", schema = "", catalog = "cosplay")
-public class McCharacteerEntity implements Serializable {
+public class McCharacteerEntity {
     private Integer characteerId;
     private String characteerName;
-    private Integer photoId;
+    private McPhotoEntity photoByPhotoId;
 
     @Id
     @GeneratedValue
@@ -56,12 +55,13 @@ public class McCharacteerEntity implements Serializable {
         return result;
     }
 
-    @Column(name = "photo_id")
-    public Integer getPhotoId() {
-        return photoId;
+    @ManyToOne(cascade = {})
+    @JoinColumn(name = "photo_id", referencedColumnName = "photo_id", nullable = true, insertable = true, updatable = true, table = "")
+    public McPhotoEntity getPhotoByPhotoId() {
+        return photoByPhotoId;
     }
 
-    public void setPhotoId(Integer photoId) {
-        this.photoId = photoId;
+    public void setPhotoByPhotoId(McPhotoEntity photoByPhotoId) {
+        this.photoByPhotoId = photoByPhotoId;
     }
 }

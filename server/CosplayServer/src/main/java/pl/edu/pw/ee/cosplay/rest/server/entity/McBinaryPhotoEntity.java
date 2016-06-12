@@ -1,17 +1,19 @@
-package pl.edu.pw.ee.cosplay.rest.model.entity;
+package pl.edu.pw.ee.cosplay.rest.server.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Collection;
 
 /**
- * Created by Micha≈Ç on 2016-05-14.
+ * Created by Micha≥ on 2016-06-12.
  */
 @Entity
 @Table(name = "binary_photo", schema = "", catalog = "cosplay")
-public class McBinaryPhotoEntity implements Serializable {
+public class McBinaryPhotoEntity {
     private Integer binaryPhotoId;
     private byte[] binaryData;
+    private Collection<McPhotoEntity> photosByBinaryPhotoId;
+    private Collection<McUserEntity> usersByBinaryPhotoId;
 
     @Id
     @GeneratedValue
@@ -34,7 +36,6 @@ public class McBinaryPhotoEntity implements Serializable {
         this.binaryData = binaryData;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,7 +53,25 @@ public class McBinaryPhotoEntity implements Serializable {
     @Override
     public int hashCode() {
         int result = binaryPhotoId != null ? binaryPhotoId.hashCode() : 0;
-        result = 31 * result + Arrays.hashCode(binaryData);
+        result = 31 * result + (binaryData != null ? Arrays.hashCode(binaryData) : 0);
         return result;
+    }
+
+    @OneToMany(cascade = {}, mappedBy = "binaryPhotoByPhotoBinaryPhotoId")
+    public Collection<McPhotoEntity> getPhotosByBinaryPhotoId() {
+        return photosByBinaryPhotoId;
+    }
+
+    public void setPhotosByBinaryPhotoId(Collection<McPhotoEntity> photosByBinaryPhotoId) {
+        this.photosByBinaryPhotoId = photosByBinaryPhotoId;
+    }
+
+    @OneToMany(cascade = {}, mappedBy = "binaryPhotoByAvatarBinaryPhotoId")
+    public Collection<McUserEntity> getUsersByBinaryPhotoId() {
+        return usersByBinaryPhotoId;
+    }
+
+    public void setUsersByBinaryPhotoId(Collection<McUserEntity> usersByBinaryPhotoId) {
+        this.usersByBinaryPhotoId = usersByBinaryPhotoId;
     }
 }

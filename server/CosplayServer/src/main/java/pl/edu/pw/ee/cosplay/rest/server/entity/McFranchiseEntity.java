@@ -1,18 +1,16 @@
-package pl.edu.pw.ee.cosplay.rest.model.entity;
+package pl.edu.pw.ee.cosplay.rest.server.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
- * Created by Micha≈Ç on 2016-05-14.
+ * Created by Micha≥ on 2016-06-12.
  */
 @Entity
 @Table(name = "franchise", schema = "", catalog = "cosplay")
-public class McFranchiseEntity implements Serializable {
+public class McFranchiseEntity {
     private Integer franchiseId;
     private String franchiseName;
-    private Integer photoId;
-
+    private McPhotoEntity photoByPhotoId;
 
     @Id
     @GeneratedValue
@@ -35,17 +33,6 @@ public class McFranchiseEntity implements Serializable {
         this.franchiseName = franchiseName;
     }
 
-
-    @Basic
-    @Column(name = "photo_id")
-    public Integer getPhotoId() {
-        return photoId;
-    }
-
-    public void setPhotoId(Integer photoId) {
-        this.photoId = photoId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,5 +52,15 @@ public class McFranchiseEntity implements Serializable {
         int result = franchiseId != null ? franchiseId.hashCode() : 0;
         result = 31 * result + (franchiseName != null ? franchiseName.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne(cascade = {})
+    @JoinColumn(name = "photo_id", referencedColumnName = "photo_id", nullable = true, insertable = true, updatable = true, table = "")
+    public McPhotoEntity getPhotoByPhotoId() {
+        return photoByPhotoId;
+    }
+
+    public void setPhotoByPhotoId(McPhotoEntity photoByPhotoId) {
+        this.photoByPhotoId = photoByPhotoId;
     }
 }

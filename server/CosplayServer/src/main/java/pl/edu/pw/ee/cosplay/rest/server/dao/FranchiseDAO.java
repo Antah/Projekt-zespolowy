@@ -2,13 +2,12 @@ package pl.edu.pw.ee.cosplay.rest.server.dao;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McBinaryPhotoEntity;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McFranchiseEntity;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McFranchiseEntity;
 
 /**
  * Created by Micha³ on 2016-05-19.
  */
 @Transactional
-public interface FranchiseDAO extends CrudRepository<McFranchiseEntity, Integer>{
+public interface FranchiseDAO extends CrudRepository<McFranchiseEntity, Integer> {
 
 }

@@ -1,7 +1,7 @@
 package pl.edu.pw.ee.cosplay.rest.server.security;
 
-import pl.edu.pw.ee.cosplay.rest.model.entity.McUserEntity;
 import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McUserEntity;
 
 import java.util.HashMap;
 import java.util.Random;

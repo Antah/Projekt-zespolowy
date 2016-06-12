@@ -12,18 +12,16 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addvote.AddVoteInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addvote.AddVoteOutput;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McRatingEntity;
 import pl.edu.pw.ee.cosplay.rest.server.dao.RatingDAO;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McRatingEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
-
-import java.sql.Date;
 
 /**
  * AddVoteController
  */
 @RestController()
 @RequestMapping(UrlData.ADD_VOTE_PATH)
-public class AddVoteController {
+public class AddVoteController extends AutowiredController {
 
     @Autowired
     private RatingDAO ratingDAO;
@@ -31,7 +29,7 @@ public class AddVoteController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addVote(@RequestBody byte[] byteInput) {
         AddVoteInput input = (AddVoteInput) SerializationUtils.deserialize(byteInput);
-        if(LoggedUsers.isLogged(input.getAuthenticationData())){
+        if (LoggedUsers.isLogged(input.getAuthenticationData())) {
 
             final McRatingEntity rating = ratingDAO.getRatingByPhotoAndUser(
                     input.getAuthenticationData().getUsername(), input.getPhotoId());
@@ -45,7 +43,7 @@ public class AddVoteController {
             mockOutput(input, output);
 
             byte[] byteOutput = SerializationUtils.serialize(output);
-            return new ResponseEntity<>(byteOutput,HttpStatus.OK);
+            return new ResponseEntity<>(byteOutput, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(ErrorMessage.NOT_LOGGED, HttpStatus.UNAUTHORIZED);
         }
@@ -57,8 +55,8 @@ public class AddVoteController {
 
     private void mockOutput(AddVoteInput input, AddVoteOutput output) {
         McRatingEntity ratingEntity = new McRatingEntity();
-        ratingEntity.setUsername(input.getAuthenticationData().getUsername());
-        ratingEntity.setPhotoId(input.getPhotoId());
+        ratingEntity.getUserByUsername().setUsername(input.getAuthenticationData().getUsername());
+        ratingEntity.setPhotoByPhotoId(photoDAO.findOne(input.getPhotoId()));
         ratingEntity.setRatingSimilarity(input.getRatingData().getSimilarityRate());
         ratingEntity.setRatingQuality(input.getRatingData().getQualityRate());
         ratingEntity.setRatingArrangemnt(input.getRatingData().getArrangementRate());

@@ -1,6 +1,5 @@
 package pl.edu.pw.ee.cosplay.rest.server.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.SerializationUtils;
@@ -13,9 +12,7 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.photos.CommentData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.RatingData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoOutput;
-import pl.edu.pw.ee.cosplay.rest.model.entity.McPhotoEntity;
-import pl.edu.pw.ee.cosplay.rest.server.dao.BinaryPhotoDAO;
-import pl.edu.pw.ee.cosplay.rest.server.dao.PhotoDAO;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McPhotoEntity;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -23,7 +20,7 @@ import java.util.HashSet;
 
 @RestController()
 @RequestMapping(UrlData.GET_PHOTO_PATH)
-public class GetPhotoController {
+public class GetPhotoController extends AutowiredController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> getPhoto(@RequestBody byte[] byteInput) {
@@ -37,13 +34,6 @@ public class GetPhotoController {
         return new ResponseEntity<>(byteOutput, HttpStatus.OK);
     }
 
-
-    @Autowired
-    PhotoDAO photoDAO;
-
-    @Autowired
-    BinaryPhotoDAO binaryPhotoDAO;
-
     private void mockOutput(GetPhotoInput input, GetPhotoOutput output) {
         McPhotoEntity photo = photoDAO.findOne(1);
 
@@ -53,7 +43,7 @@ public class GetPhotoController {
                 binaryPhotoDAO.findOne(22).getBinaryData()
         );
 
-        output.setUsername(photo.getUsername());
+        output.setUsername(photo.getUserByUsername().getUsername());
         output.setUploadDate(photo.getUploadDate());
         RatingData ratingData = new RatingData();
         ratingData.setGeneralRate(3);
