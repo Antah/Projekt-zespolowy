@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import org.apache.commons.lang.SerializationUtils;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -45,6 +46,9 @@ public abstract class ServerTask<Input extends Serializable,Output extends Seria
     protected Object doInBackground(Void[] params) {
         try {
             RestTemplate restTemplate = new RestTemplate();
+            SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+            requestFactory.setConnectTimeout(6000); //6 seconds connection timeout
+            restTemplate.setRequestFactory(requestFactory);
             URI uri = UriComponentsBuilder
                     .fromHttpUrl(UrlData.getServerIp()).port(UrlData.getPORT()).path(servicePath).build().toUri();
             byte[] binaryInput = SerializationUtils.serialize(input);

@@ -12,10 +12,12 @@ import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerOutput;
+import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
 
 public class LoginActivity extends AppCompatActivity {
 
     public static final String AUTHENTICATION_DATA = "AUTHENTICATION_DATA";
+    public static AuthenticationData authenticationData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override protected void doSomethingWithOutput(LoginControllerOutput o) {
                 Intent intent = new Intent(activity, MenuActivity.class);
                 Bundle bundle = new Bundle();
+                authenticationData = o.getAuthenticationData();
                 bundle.putSerializable(AUTHENTICATION_DATA, o.getAuthenticationData());
                 intent.putExtras(bundle);
                 activity.startActivity(intent);

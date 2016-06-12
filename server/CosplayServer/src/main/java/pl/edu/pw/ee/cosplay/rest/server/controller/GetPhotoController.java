@@ -11,15 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.CommentData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.RatingData;
-import pl.edu.pw.ee.cosplay.rest.model.controller.photos.SimplePhotoData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoOutput;
-import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListInput;
-import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListOutput;
 import pl.edu.pw.ee.cosplay.rest.model.entity.McPhotoEntity;
 import pl.edu.pw.ee.cosplay.rest.server.dao.BinaryPhotoDAO;
 import pl.edu.pw.ee.cosplay.rest.server.dao.PhotoDAO;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -36,7 +34,7 @@ public class GetPhotoController {
         mockOutput(input, output);
 
         byte[] byteOutput = SerializationUtils.serialize(output);
-        return new ResponseEntity<>(byteOutput,HttpStatus.OK);
+        return new ResponseEntity<>(byteOutput, HttpStatus.OK);
     }
 
 
@@ -52,29 +50,38 @@ public class GetPhotoController {
         output.setFranchisesList(new HashSet<String>());
         output.setCharactersList(new HashSet<String>());
         output.setPhotoBinaryData(
-                    binaryPhotoDAO.findOne(1).getBinaryData()
+                binaryPhotoDAO.findOne(1).getBinaryData()
         );
 
         output.setUsername(photo.getUsername());
         output.setUploadDate(photo.getUploadDate());
         RatingData ratingData = new RatingData();
+        ratingData.setGeneralRate(3);
         ratingData.setArrangementRate(2);
         ratingData.setQualityRate(3);
         ratingData.setSimilarityRate(4);
         output.setRatingData(ratingData);
         photo.setPhotoId(input.getPhotoId());
+        output.setPhotoId(1);
 
         ArrayList<CommentData> comments = new ArrayList<>();
         CommentData commentData = new CommentData();
         commentData.setUsername("Username1");
         commentData.setComment("My comment1");
+        commentData.setCommentDate(new Date(System.currentTimeMillis()));
         CommentData commentData2 = new CommentData();
         commentData2.setUsername("Username2");
         commentData2.setComment("My comment2");
+        commentData2.setCommentDate(new Date(System.currentTimeMillis()));
         CommentData commentData3 = new CommentData();
         commentData3.setUsername("Username3");
         commentData3.setComment("My comment3");
+        commentData3.setCommentDate(new Date(System.currentTimeMillis()));
+        comments.add(commentData);
+        comments.add(commentData3);
+        comments.add(commentData2);
         output.setComments(comments);
+        output.setDescription("tralalalax");
     }
 
 }

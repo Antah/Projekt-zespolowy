@@ -21,7 +21,7 @@ import java.util.HashSet;
 import pl.edu.pw.ee.cosplay.R;
 import pl.edu.pw.ee.cosplay.client.activity.LoginActivity;
 import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
-import pl.edu.pw.ee.cosplay.client.photo.ImageUtils;
+import pl.edu.pw.ee.cosplay.client.utils.Utils;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addphoto.AddPhotoOutput;
@@ -125,7 +125,7 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
         input.setCharactersList(charactersList);
         input.setFranchisesList(franchisesList);
 
-        byte[] bytes = ImageUtils.getBytesFromImageView(selectedPhotoImageView);
+        byte[] bytes = Utils.getBytesFromImageView(selectedPhotoImageView);
         input.setPhotoBinaryData(bytes);
 
         return input;

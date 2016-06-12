@@ -1,12 +1,11 @@
 package pl.edu.pw.ee.cosplay.client.adapter;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -15,17 +14,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.HashSet;
-
 import pl.edu.pw.ee.cosplay.R;
 import pl.edu.pw.ee.cosplay.client.activity.MenuActivity;
+import pl.edu.pw.ee.cosplay.client.activity.PhotoActivity;
 import pl.edu.pw.ee.cosplay.client.fragment.AllPhotosFragment;
 import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
-import pl.edu.pw.ee.cosplay.client.photo.ImageUtils;
+import pl.edu.pw.ee.cosplay.client.utils.Utils;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.SimplePhotoData;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoInput;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoOutput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListOutput;
 
@@ -45,7 +43,7 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         SimplePhotoData simplePhotoData = getItem(position);
 
@@ -57,8 +55,28 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
 
         Button showMoreButton = (Button) convertView.findViewById(R.id.showMoreButton);
 
-        //TODO
-        getPhotosListOutput.setAreThereNextPhotos(true);
+        ImageView simplePhotoImageView = (ImageView) convertView.findViewById(R.id.simplePhotoImageView);
+
+        final GetPhotoInput getPhotoInput = new GetPhotoInput();
+        getPhotoInput.setPhotoId(getPhotosListOutput.getSimplePhotoDataList().get(position).getPhotoId());
+
+        simplePhotoImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                (new ServerTask<GetPhotoInput, GetPhotoOutput, MenuActivity>(activity, getPhotoInput, UrlData.GET_PHOTO_PATH) {
+
+                    @Override
+                    protected void doSomethingWithOutput(GetPhotoOutput o) {
+                        Intent intent = new Intent(activity, PhotoActivity.class);
+                        Bundle bundle = new Bundle();
+                        o.setPhotoBinaryData(getPhotosListOutput.getSimplePhotoDataList().get(position).getPhotoBinaryData());
+                        bundle.putSerializable(MenuActivity.GET_PHOTO_OUTPUT, o);
+                        intent.putExtras(bundle);
+                        activity.startActivity(intent);
+                    }
+                }).execute();
+            }
+        });
 
         if((getCount() - 1 == position)&&getPhotosListOutput.getAreThereNextPhotos()){
             showMoreButton.setVisibility(View.VISIBLE);
@@ -97,13 +115,13 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
         usernameTextView.setText(simplePhotoData.getUsername());
 
         TextView dateTextView = (TextView) convertView.findViewById(R.id.dateTextView);
-        dateTextView.setText(simplePhotoData.getUploadDate().toString());
+        dateTextView.setText(Utils.formatDate(simplePhotoData.getUploadDate()));
 
         TextView franchiseTextView = (TextView) convertView.findViewById(R.id.franchiseTextView);
-        franchiseTextView.setText(parseReadableList(simplePhotoData.getFranchisesList()));
+        franchiseTextView.setText(Utils.parseReadableList(simplePhotoData.getFranchisesList()));
 
         TextView characterTextView = (TextView) convertView.findViewById(R.id.characterTextView);
-        characterTextView.setText(parseReadableList(simplePhotoData.getCharactersList()));
+        characterTextView.setText(Utils.parseReadableList(simplePhotoData.getCharactersList()));
 
         TextView commentsTextView = (TextView) convertView.findViewById(R.id.commentsTextView);
         commentsTextView.setText(simplePhotoData.getCommentsNumber().toString());
@@ -122,24 +140,11 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
 
         ImageButton avatarImageButton = (ImageButton) convertView.findViewById(R.id.avatarImageButton);
         if(simplePhotoData.getAvatarBinaryData() != null) {
-            ImageUtils.setImageViewByBytesArray(avatarImageButton, simplePhotoData.getAvatarBinaryData());
+            Utils.setImageViewByBytesArray(avatarImageButton, simplePhotoData.getAvatarBinaryData());
         }
 
         ImageView simplePhotoImageView = (ImageView) convertView.findViewById(R.id.simplePhotoImageView);
-        ImageUtils.setImageViewByBytesArray(simplePhotoImageView, simplePhotoData.getPhotoBinaryData());
+        Utils.setImageViewByBytesArray(simplePhotoImageView, simplePhotoData.getPhotoBinaryData());
 
-    }
-
-    private String parseReadableList(HashSet<String> list) {
-        StringBuilder s = new StringBuilder();
-        int j=0;
-        for(String element : list){
-            s.append(element);
-            if(j != list.size() - 1){
-                s.append(", ");
-            }
-            j++;
-        }
-        return s.toString();
     }
 }

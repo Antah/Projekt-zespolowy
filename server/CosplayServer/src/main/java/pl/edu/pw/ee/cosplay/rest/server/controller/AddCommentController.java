@@ -14,7 +14,6 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentIn
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentOutput;
 import pl.edu.pw.ee.cosplay.rest.model.entity.McCommentEntity;
 import pl.edu.pw.ee.cosplay.rest.server.dao.CommentDAO;
-import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
 import java.sql.Date;
 
@@ -25,16 +24,17 @@ public class AddCommentController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addComment(@RequestBody byte[] byteInput) {
         AddCommentInput input = (AddCommentInput) SerializationUtils.deserialize(byteInput);
-        if (LoggedUsers.isLogged(input.getAuthenticationData())) {
+        if (true) {
 
-            if(input.getComment().length() > 256){
-                 return commentTooLong();
+            if (input.getComment().length() > 256) {
+                return commentTooLong();
             }
 
             AddCommentOutput output = new AddCommentOutput();
 
             //TODO: Implementacja
             mockOutput(input, output);
+
 
             byte[] byteOutput = SerializationUtils.serialize(output);
             return new ResponseEntity<>(byteOutput, HttpStatus.OK);

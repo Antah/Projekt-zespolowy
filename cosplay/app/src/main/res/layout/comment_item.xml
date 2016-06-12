@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+
+        <ImageButton
+            android:layout_width="@dimen/avatar_dimen"
+            android:layout_height="@dimen/avatar_dimen"
+            android:id="@+id/commentAvatarImageButton"
+            android:src="@mipmap/user"
+            android:scaleType="fitCenter"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:text="User"
+            android:id="@+id/commentUserNameTextView"
+            android:layout_gravity="center"
+            android:layout_margin="0dp"
+            android:textSize="16dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Date"
+            android:id="@+id/commentDateTextView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Come comment about funny things, long comment I tell y&apos;a"
+            android:id="@+id/commentTextView" />
+    </LinearLayout>
+
+</LinearLayout>

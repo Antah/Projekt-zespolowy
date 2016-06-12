@@ -24,6 +24,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("com.google.collections:google-collections:1.0")
+    compile("org.springframework.boot:spring-boot-devtools")
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
