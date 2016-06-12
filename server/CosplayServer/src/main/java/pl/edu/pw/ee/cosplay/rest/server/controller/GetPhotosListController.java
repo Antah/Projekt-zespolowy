@@ -68,42 +68,42 @@ public class GetPhotosListController extends AutowiredController {
                 Collections.sort(photoEntities, (o1, o2) -> o2.getUploadDate().compareTo(o1.getUploadDate()));
                 break;
             case COMMENTS_NO:
-                Collections.sort(photoEntities, (o1, o2) -> o1.getCommentsByPhotoId().size() - o2.getCommentsByPhotoId().size());
-                break;
-            case COMMENTS_NO_DESC:
                 Collections.sort(photoEntities, (o1, o2) -> o2.getCommentsByPhotoId().size() - o1.getCommentsByPhotoId().size());
                 break;
-            case GENERAL_RATE:
-                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getGeneralRate()
-                        .compareTo(McPhotoEntity.getRatingData(o2).getGeneralRate()));
+            case COMMENTS_NO_DESC:
+                Collections.sort(photoEntities, (o1, o2) -> o1.getCommentsByPhotoId().size() - o2.getCommentsByPhotoId().size());
                 break;
-            case GENERAL_RATE_DESC:
+            case GENERAL_RATE:
                 Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o2).getGeneralRate()
                         .compareTo(McPhotoEntity.getRatingData(o1).getGeneralRate()));
                 break;
-            case SIMILARITY_RATE:
-                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getSimilarityRate()
-                        .compareTo(McPhotoEntity.getRatingData(o2).getSimilarityRate()));
+            case GENERAL_RATE_DESC:
+                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getGeneralRate()
+                        .compareTo(McPhotoEntity.getRatingData(o2).getGeneralRate()));
                 break;
-            case SIMILARITY_RATE_DESC:
+            case SIMILARITY_RATE:
                 Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o2).getSimilarityRate()
                         .compareTo(McPhotoEntity.getRatingData(o1).getSimilarityRate()));
                 break;
-            case QUALITY_RATE:
-                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getQualityRate()
-                        .compareTo(McPhotoEntity.getRatingData(o2).getQualityRate()));
+            case SIMILARITY_RATE_DESC:
+                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getSimilarityRate()
+                        .compareTo(McPhotoEntity.getRatingData(o2).getSimilarityRate()));
                 break;
-            case QUALITY_RATE_DESC:
+            case QUALITY_RATE:
                 Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o2).getQualityRate()
                         .compareTo(McPhotoEntity.getRatingData(o1).getQualityRate()));
                 break;
-            case ARRANGEMENT_RATE:
-                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getArrangementRate()
-                        .compareTo(McPhotoEntity.getRatingData(o2).getArrangementRate()));
+            case QUALITY_RATE_DESC:
+                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getQualityRate()
+                        .compareTo(McPhotoEntity.getRatingData(o2).getQualityRate()));
                 break;
-            case ARRANGEMENT_RATE_DESC:
+            case ARRANGEMENT_RATE:
                 Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o2).getArrangementRate()
                         .compareTo(McPhotoEntity.getRatingData(o1).getArrangementRate()));
+                break;
+            case ARRANGEMENT_RATE_DESC:
+                Collections.sort(photoEntities, (o1, o2) -> McPhotoEntity.getRatingData(o1).getArrangementRate()
+                        .compareTo(McPhotoEntity.getRatingData(o2).getArrangementRate()));
                 break;
         }
         return photoEntities;
@@ -125,7 +125,7 @@ public class GetPhotosListController extends AutowiredController {
                 }
             }
         }
-        photoEntities.remove(toRemove);
+        photoEntities.removeAll(toRemove);
         return photoEntities;
     }
 
@@ -146,7 +146,7 @@ public class GetPhotosListController extends AutowiredController {
                 }
             }
         }
-        photoEntities.remove(toRemove);
+        photoEntities.removeAll(toRemove);
         return photoEntities;
     }
 
@@ -165,7 +165,7 @@ public class GetPhotosListController extends AutowiredController {
                 toRemove.add(photoEntity);
             }
         }
-        photoEntities.remove(toRemove);
+        photoEntities.removeAll(toRemove);
         return photoEntities;
     }
 
@@ -176,7 +176,7 @@ public class GetPhotosListController extends AutowiredController {
                 toRemove.add(photoEntity);
             }
         }
-        photoEntities.remove(toRemove);
+        photoEntities.removeAll(toRemove);
         return photoEntities;
     }
 

@@ -22,5 +22,6 @@ public class LauncherActivity extends Activity {
         UrlData.setPORT(PORT);
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
 }

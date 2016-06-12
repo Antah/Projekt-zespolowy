@@ -71,7 +71,6 @@ public class AllPhotosFragment extends Fragment {
                         FragmentTransaction transaction = activity.getFragmentManager().beginTransaction();
 
                         transaction.replace(R.id.fragmentPlaceHolder, newFragment);
-                        transaction.addToBackStack(null);
 
                         transaction.commit();
                     }

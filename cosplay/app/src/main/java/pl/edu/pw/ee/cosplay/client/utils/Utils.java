@@ -2,6 +2,7 @@ package pl.edu.pw.ee.cosplay.client.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 
@@ -23,11 +24,11 @@ public class Utils {
 
     public static byte[] getBytesFromImageView(ImageView imageView){
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+        bitmap = getResizedBitmap(bitmap, 720);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, stream);
         return stream.toByteArray();
     }
-
 
     public static String parseReadableList(HashSet<String> list) {
         StringBuilder s = new StringBuilder();
@@ -55,5 +56,21 @@ public class Utils {
             simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         }
         return simpleDateFormat.format(date);
+    }
+
+    public static Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        float bitmapRatio = (float) width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+
+        return Bitmap.createScaledBitmap(image, width, height, true);
     }
 }

@@ -39,7 +39,6 @@ public class MenuActivity extends Activity{
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         transaction.replace(R.id.fragmentPlaceHolder, newFragment);
-        transaction.addToBackStack(null);
 
         transaction.commit();
     }
@@ -63,9 +62,7 @@ public class MenuActivity extends Activity{
                 Fragment newFragment = new AllPhotosFragment();
                 newFragment.setArguments(bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
                 transaction.replace(R.id.fragmentPlaceHolder, newFragment);
-                transaction.addToBackStack(null);
 
                 transaction.commit();
             }
@@ -96,7 +93,6 @@ public class MenuActivity extends Activity{
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.fragmentPlaceHolder, newFragment);
-                transaction.addToBackStack(null);
 
                 transaction.commit();
             }

@@ -75,8 +75,8 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
             showMoreButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getPhotosListInput.setRangeFirst(getPhotosListInput.getRangeFirst() + 1);
-                    getPhotosListInput.setRangeLast(getPhotosListInput.getRangeFirst() + MenuActivity.RANGE);
+                    getPhotosListInput.setRangeFirst(getPhotosListInput.getRangeLast() + 1);
+                    getPhotosListInput.setRangeLast(getPhotosListInput.getRangeFirst() + MenuActivity.RANGE - 1);
                     (new ServerTask<GetPhotosListInput, GetPhotosListOutput, MenuActivity>(activity, getPhotosListInput, UrlData.GET_PHOTOS_LIST_PATH) {
                         @Override protected void doSomethingWithOutput(GetPhotosListOutput o) {
                             Bundle bundle = new Bundle();
@@ -88,7 +88,6 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
                             FragmentTransaction transaction = activity.getFragmentManager().beginTransaction();
 
                             transaction.replace(R.id.fragmentPlaceHolder, newFragment);
-                            transaction.addToBackStack(null);
 
                             transaction.commit();
                         }
