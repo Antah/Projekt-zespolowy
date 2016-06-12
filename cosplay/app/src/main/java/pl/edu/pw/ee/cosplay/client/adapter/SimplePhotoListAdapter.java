@@ -23,7 +23,6 @@ import pl.edu.pw.ee.cosplay.client.utils.Utils;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.SimplePhotoData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoInput;
-import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoOutput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListOutput;
 

@@ -24,7 +24,7 @@ public class Utils {
     public static byte[] getBytesFromImageView(ImageView imageView){
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
         return stream.toByteArray();
     }
 
@@ -49,7 +49,7 @@ public class Utils {
         then.setTimeInMillis(date.getTime());
         SimpleDateFormat simpleDateFormat;
         if(now.get(Calendar.DAY_OF_YEAR) == then.get(Calendar.DAY_OF_YEAR)) {
-            simpleDateFormat = new SimpleDateFormat("hh:mm");
+            simpleDateFormat = new SimpleDateFormat("HH:mm");
         }
         else {
             simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");

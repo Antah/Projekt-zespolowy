@@ -1,7 +1,7 @@
 package pl.edu.pw.ee.cosplay.rest.model.controller.photos;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by Micha³ on 2016-06-03.

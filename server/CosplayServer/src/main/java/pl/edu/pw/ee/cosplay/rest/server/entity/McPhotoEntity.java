@@ -1,8 +1,11 @@
 package pl.edu.pw.ee.cosplay.rest.server.entity;
 
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.RatingData;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.SimplePhotoData;
+
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by Micha³ on 2016-06-12.
@@ -32,6 +35,7 @@ public class McPhotoEntity {
     }
 
     @Basic
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "upload_date")
     public Date getUploadDate() {
         return uploadDate;
@@ -127,5 +131,43 @@ public class McPhotoEntity {
 
     public void setRatingsByPhotoId(Collection<McRatingEntity> ratingsByPhotoId) {
         this.ratingsByPhotoId = ratingsByPhotoId;
+    }
+
+    @Transient
+    public static SimplePhotoData createPhotoDataFromPhotoEntity(SimplePhotoData photoData, McPhotoEntity photoEntity) {
+        photoData.setPhotoId(photoEntity.getPhotoId());
+        if (photoEntity.getUserByUsername().getBinaryPhotoByAvatarBinaryPhotoId() != null)
+            photoData.setAvatarBinaryData(photoEntity.getUserByUsername().getBinaryPhotoByAvatarBinaryPhotoId().getBinaryData());
+        photoData.setUsername(photoEntity.getUserByUsername().getUsername());
+        photoData.setUploadDate(photoEntity.getUploadDate());
+        photoData.setCommentsNumber(photoEntity.getCommentsByPhotoId().size());
+        photoData.setPhotoBinaryData(photoEntity.getBinaryPhotoByPhotoBinaryPhotoId().getBinaryData());
+        for (McFranchiseEntity franchiseEntity : photoEntity.getFranchisesByPhotoId()) {
+            photoData.getFranchisesList().add(franchiseEntity.getFranchiseName());
+        }
+        for (McCharacteerEntity characteerEntity : photoEntity.getCharacteersByPhotoId()) {
+            photoData.getCharactersList().add(characteerEntity.getCharacteerName());
+        }
+        RatingData ratingData = getRatingData(photoEntity);
+        photoData.setRatingData(ratingData);
+        return photoData;
+    }
+
+    @Transient
+    public static RatingData getRatingData(McPhotoEntity photoEntity) {
+        RatingData ratingData = new RatingData();
+        for (McRatingEntity ratingEntity : photoEntity.getRatingsByPhotoId()) {
+            ratingData.setSimilarityRate(ratingData.getSimilarityRate() + ratingEntity.getRatingSimilarity());
+            ratingData.setQualityRate(ratingData.getSimilarityRate() + ratingEntity.getRatingQuality());
+            ratingData.setArrangementRate(ratingData.getSimilarityRate() + ratingEntity.getRatingArrangemnt());
+        }
+        if (photoEntity.getRatingsByPhotoId().size() > 0) {
+            ratingData.setArrangementRate(ratingData.getArrangementRate() / photoEntity.getRatingsByPhotoId().size());
+            ratingData.setQualityRate(ratingData.getQualityRate() / photoEntity.getRatingsByPhotoId().size());
+            ratingData.setSimilarityRate(ratingData.getSimilarityRate() / photoEntity.getRatingsByPhotoId().size());
+            ratingData.setGeneralRate
+                    ((ratingData.getArrangementRate() + ratingData.getQualityRate() + ratingData.getSimilarityRate()) / 3);
+        }
+        return ratingData;
     }
 }

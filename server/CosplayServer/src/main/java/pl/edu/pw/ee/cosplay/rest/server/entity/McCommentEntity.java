@@ -1,7 +1,7 @@
 package pl.edu.pw.ee.cosplay.rest.server.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 
 /**
@@ -38,6 +38,7 @@ public class McCommentEntity {
     }
 
     @Basic
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "comment_date")
     public Date getCommentDate() {
         return commentDate;

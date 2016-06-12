@@ -6,7 +6,7 @@ import java.util.HashSet;
 /**
  * Created by Micha³ on 2016-05-20.
  */
-public class GetPhotosListInput implements Serializable{
+public class GetPhotosListInput implements Serializable {
 
     private HashSet<String> filtrByFranchiseList = new HashSet<>();
 
@@ -14,8 +14,8 @@ public class GetPhotosListInput implements Serializable{
 
     private PhotosOrder order;
 
-    //range okreœlaj¹ w jakim zakrecie <first; last> maj¹ byæ zwrócone wyniki, liczymy od zera
-	//czyli <1,5> zwróci dok³adnie piêæ pierwszych wyników
+    //range okreœlaj¹ w jakim zakrecie <first; last>
+    //czyli <1,5> zwróci dok³adnie piêæ pierwszych wyników
     private Integer rangeFirst;
 
     private Integer rangeLast;
