@@ -21,6 +21,12 @@ public class UrlData {
 
     public static final String GET_PHOTOS_LIST_PATH = "/getPhotosList";
 
+    public static final String GET_USER_PATH = "/getUser";
+
+    public static final String CHANGE_AVATAR_PATH = "/changeAvarat";
+
+    public static final String OBSERVATION_PATH = "/observation";
+
     public static String getServerIp() {
         return SERVER_IP;
     }

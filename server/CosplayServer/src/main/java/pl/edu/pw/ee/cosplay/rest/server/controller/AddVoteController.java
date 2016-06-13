@@ -39,7 +39,6 @@ public class AddVoteController extends AutowiredController {
 
             AddVoteOutput output = new AddVoteOutput();
 
-            //TODO: Implementacja
             mockOutput(input, output);
 
             byte[] byteOutput = SerializationUtils.serialize(output);

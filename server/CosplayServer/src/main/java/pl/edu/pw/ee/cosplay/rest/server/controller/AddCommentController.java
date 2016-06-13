@@ -31,7 +31,6 @@ public class AddCommentController extends AutowiredController {
 
             AddCommentOutput output = new AddCommentOutput();
 
-            //TODO: Implementacja
             mockOutput(input, output);
 
 

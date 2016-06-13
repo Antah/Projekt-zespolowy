@@ -27,7 +27,6 @@ public class GetPhotosListController extends AutowiredController {
         GetPhotosListInput input = (GetPhotosListInput) SerializationUtils.deserialize(byteInput);
         GetPhotosListOutput output = new GetPhotosListOutput();
 
-        //TODO implementacja
         mockOutput(input, output);
 
         byte[] byteOutput = SerializationUtils.serialize(output);

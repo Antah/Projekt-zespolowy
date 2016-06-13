@@ -24,13 +24,12 @@ import java.sql.Date;
 public class AddPhotoController extends AutowiredController {
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody byte[] byteInput) {
+    public ResponseEntity<?> addPhoto(@RequestBody byte[] byteInput) {
         AddPhotoInput input = (AddPhotoInput) SerializationUtils.deserialize(byteInput);
         if (LoggedUsers.isLogged(input.getAuthenticationData())) {
 
             AddPhotoOutput output = new AddPhotoOutput();
 
-            //TODO: Implementacja
             mockOutput(input, output);
 
             byte[] byteOutput = SerializationUtils.serialize(output);
