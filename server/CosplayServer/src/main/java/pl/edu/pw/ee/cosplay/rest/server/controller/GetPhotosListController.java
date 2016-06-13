@@ -154,8 +154,8 @@ public class GetPhotosListController extends AutowiredController {
         ArrayList<McPhotoEntity> toRemove = new ArrayList<>();
         for (McPhotoEntity photoEntity : photoEntities) {
             Boolean isObserved = false;
-            for (McObservationEntity observed : observer.getObservationsByUsername()) {
-                if (observed.getUserByObserver() == photoEntity.getUserByUsername()) {
+            for (McObservationEntity observed : observer.getObservationsByUsername_0()) {
+                if (observed.getUserByObserved() == photoEntity.getUserByUsername()) {
                     isObserved = true;
                     break;
                 }
