@@ -158,8 +158,8 @@ public class McPhotoEntity {
         RatingData ratingData = new RatingData();
         for (McRatingEntity ratingEntity : photoEntity.getRatingsByPhotoId()) {
             ratingData.setSimilarityRate(ratingData.getSimilarityRate() + ratingEntity.getRatingSimilarity());
-            ratingData.setQualityRate(ratingData.getSimilarityRate() + ratingEntity.getRatingQuality());
-            ratingData.setArrangementRate(ratingData.getSimilarityRate() + ratingEntity.getRatingArrangemnt());
+            ratingData.setQualityRate(ratingData.getQualityRate() + ratingEntity.getRatingQuality());
+            ratingData.setArrangementRate(ratingData.getArrangementRate() + ratingEntity.getRatingArrangemnt());
         }
         if (photoEntity.getRatingsByPhotoId().size() > 0) {
             ratingData.setArrangementRate(ratingData.getArrangementRate() / photoEntity.getRatingsByPhotoId().size());

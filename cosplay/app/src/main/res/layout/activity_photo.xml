@@ -47,7 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_margin="5dp"
-                android:background="#32ffffff">
+                android:background="#32ffffff"
+                android:id="@+id/photoRatingLayout">
 
                 <RelativeLayout
                     android:layout_width="match_parent"

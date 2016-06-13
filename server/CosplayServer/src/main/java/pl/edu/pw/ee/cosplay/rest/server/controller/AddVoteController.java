@@ -54,7 +54,7 @@ public class AddVoteController extends AutowiredController {
 
     private void mockOutput(AddVoteInput input, AddVoteOutput output) {
         McRatingEntity ratingEntity = new McRatingEntity();
-        ratingEntity.getUserByUsername().setUsername(input.getAuthenticationData().getUsername());
+        ratingEntity.setUserByUsername(userDAO.getUserByLogin(input.getAuthenticationData().getUsername()));
         ratingEntity.setPhotoByPhotoId(photoDAO.findOne(input.getPhotoId()));
         ratingEntity.setRatingSimilarity(input.getRatingData().getSimilarityRate());
         ratingEntity.setRatingQuality(input.getRatingData().getQualityRate());

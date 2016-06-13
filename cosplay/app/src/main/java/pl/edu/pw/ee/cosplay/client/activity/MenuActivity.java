@@ -45,6 +45,8 @@ public class MenuActivity extends Activity{
         String username = getIntent().getStringExtra(USERNAME_ID);
         if(username != null){
             openProfileFragment(username);
+        } else {
+            allPhotosFragment(null);
         }
         fa = this;
     }

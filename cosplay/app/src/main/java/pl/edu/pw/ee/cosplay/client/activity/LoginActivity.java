@@ -1,9 +1,12 @@
 package pl.edu.pw.ee.cosplay.client.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
 import pl.edu.pw.ee.cosplay.R;
