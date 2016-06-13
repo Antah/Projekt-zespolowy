@@ -58,6 +58,8 @@ public class Utils {
     public static HashSet<String> parseToList(String s) {
         HashSet<String> result = new HashSet<>();
         s = s.replaceAll("\\s+","");
+        if(s.equals("none"))
+            return result;
         if(!s.isEmpty()) {
             String[] resultList = s.split(",");
             result.addAll(Arrays.asList(resultList));

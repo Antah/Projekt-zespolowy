@@ -17,6 +17,7 @@ import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerOutput;
+import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListOutput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.PhotosOrder;
@@ -31,12 +32,21 @@ public class MenuActivity extends Activity{
     public static final String GET_USER_INPUT = "GET_USER_INPUT";
     public static final String GET_USER_OUTPUT = "GET_USER_OUTPUT";
     public static final String GET_PHOTO_ID = "GET_PHOTO_ID";
+    public static final String USERNAME_ID = "USERNAME_ID";
     public static final Integer RANGE = 4;
+
+    public static Activity fa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        String username = getIntent().getStringExtra(USERNAME_ID);
+        if(username != null){
+            openProfileFragment(username);
+        }
+        fa = this;
     }
 
     public void addPhotoFragment(View view) {
@@ -83,8 +93,7 @@ public class MenuActivity extends Activity{
         input.setOrder(PhotosOrder.UPLOAD_DATE_DESC);
         input.setRangeFirst(1);
         input.setRangeLast(RANGE);
-        AuthenticationData authenticationData =
-                (AuthenticationData) getIntent().getSerializableExtra(LoginActivity.AUTHENTICATION_DATA);
+        AuthenticationData authenticationData = LoginActivity.authenticationData;
         input.setObserver(authenticationData.getUsername());
 
         (new ServerTask<GetPhotosListInput, GetPhotosListOutput, MenuActivity>(this, input, UrlData.GET_PHOTOS_LIST_PATH) {
@@ -105,6 +114,10 @@ public class MenuActivity extends Activity{
     }
 
     public void yourProfileFragment(View view) {
+        openProfileFragment(LoginActivity.authenticationData.getUsername());
+    }
+
+    public void openProfileFragment(String username) {
         final GetUserInput userInput = new GetUserInput();
         userInput.setAuthenticationData(LoginActivity.authenticationData);
         userInput.setUsername(LoginActivity.authenticationData.getUsername());
@@ -118,7 +131,7 @@ public class MenuActivity extends Activity{
         photoInput.setOrder(PhotosOrder.UPLOAD_DATE_DESC);
         photoInput.setRangeFirst(1);
         photoInput.setRangeLast(1);
-        photoInput.setAuthor(userInput.getUsername());
+        photoInput.setAuthor(username);
 
         (new ServerTask<GetPhotosListInput, GetPhotosListOutput, MenuActivity>(this, photoInput, UrlData.GET_PHOTOS_LIST_PATH) {
             @Override

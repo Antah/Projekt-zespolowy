@@ -55,8 +55,7 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
         descriptionEditText = (EditText) v.findViewById(R.id.descriptionEditText);
         franchisesEditText = (EditText) v.findViewById(R.id.franchisesEditText);
 
-        authenticationData =
-                (AuthenticationData) getActivity().getIntent().getSerializableExtra(LoginActivity.AUTHENTICATION_DATA);
+        authenticationData = LoginActivity.authenticationData;
 
         Button addPhotoButton = (Button) v.findViewById(R.id.addPhotoButton);
         addPhotoButton.setOnClickListener(this);

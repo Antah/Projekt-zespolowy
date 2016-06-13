@@ -44,7 +44,7 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        SimplePhotoData simplePhotoData = getItem(position);
+        final SimplePhotoData simplePhotoData = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.simple_photo_item, parent, false);
@@ -55,6 +55,8 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
         Button showMoreButton = (Button) convertView.findViewById(R.id.showMoreButton);
 
         ImageView simplePhotoImageView = (ImageView) convertView.findViewById(R.id.simplePhotoImageView);
+        ImageView avatarImageButton = (ImageView) convertView.findViewById(R.id.avatarImageButton);
+
 
         final GetPhotoInput getPhotoInput = new GetPhotoInput();
         getPhotoInput.setPhotoId(getPhotosListOutput.getSimplePhotoDataList().get(position).getPhotoId());
@@ -62,11 +64,18 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
         simplePhotoImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        Intent intent = new Intent(activity, PhotoActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putSerializable(MenuActivity.GET_PHOTO_ID, getPhotoInput);
-                        intent.putExtras(bundle);
-                        activity.startActivity(intent);
+                Intent intent = new Intent(activity, PhotoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(MenuActivity.GET_PHOTO_ID, getPhotoInput);
+                intent.putExtras(bundle);
+                activity.startActivity(intent);
+            }
+        });
+
+        avatarImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.openProfileFragment(simplePhotoData.getUsername());
             }
         });
 
@@ -129,7 +138,7 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
         TextView qualityTextView = (TextView) convertView.findViewById(R.id.qualityTextView);
         qualityTextView.setText(simplePhotoData.getRatingData().getQualityRate().toString());
 
-        ImageButton avatarImageButton = (ImageButton) convertView.findViewById(R.id.avatarImageButton);
+        ImageView avatarImageButton = (ImageView) convertView.findViewById(R.id.avatarImageButton);
         if(simplePhotoData.getAvatarBinaryData() != null) {
             Utils.setImageViewByBytesArray(avatarImageButton, simplePhotoData.getAvatarBinaryData());
         }

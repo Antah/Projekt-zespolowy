@@ -33,6 +33,8 @@ import pl.edu.pw.ee.cosplay.client.utils.Utils;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.avatar.ChangeAvatarInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.avatar.ChangeAvatarOutput;
+import pl.edu.pw.ee.cosplay.rest.model.controller.observation.ObservationInput;
+import pl.edu.pw.ee.cosplay.rest.model.controller.observation.ObservationOutput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListOutput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.PhotosOrder;
@@ -50,6 +52,9 @@ public class UserFragment extends Fragment {
 
     private View view;
 
+    private GetUserInput getUserInput;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,7 +62,7 @@ public class UserFragment extends Fragment {
         GetPhotosListOutput getPhotosListOutput = (GetPhotosListOutput) getArguments().getSerializable(MenuActivity.GET_PHOTOS_LIST_OUTPUT);
         GetPhotosListInput getPhotosListInput = (GetPhotosListInput) getArguments().getSerializable(MenuActivity.GET_PHOTOS_LIST_INPUT);
         GetUserOutput getUserOutput = (GetUserOutput) getArguments().getSerializable(MenuActivity.GET_USER_OUTPUT);
-        GetUserInput getUserInput = (GetUserInput) getArguments().getSerializable(MenuActivity.GET_USER_INPUT);
+        getUserInput = (GetUserInput) getArguments().getSerializable(MenuActivity.GET_USER_INPUT);
 
         ListView listView = (ListView) v.findViewById(R.id.userPhotoListView);
         listView.setAdapter(new SimplePhotoListAdapter(v.getContext(), R.layout.simple_photo_item, getPhotosListOutput, getPhotosListInput, (MenuActivity) getActivity()));
@@ -68,27 +73,33 @@ public class UserFragment extends Fragment {
         return v;
     }
 
+    private TextView userObservedByTextView;
+    private Button button;
+
     private void setViewBy(GetUserInput getUserInput, GetUserOutput getUserOutput, View v) {
-        TextView userIsObserving = (TextView) v.findViewById(R.id.userIsObserving);
+        TextView userIsObserving;
+        userIsObserving = (TextView) v.findViewById(R.id.userIsObserving);
         userIsObserving.setText(Utils.parseReadableList(getUserOutput.getObserverOf()));
-        TextView userObservedByTextView = (TextView) v.findViewById(R.id.userObservedByTextView);
+        userObservedByTextView = (TextView) v.findViewById(R.id.userObservedByTextView);
         userObservedByTextView.setText(Utils.parseReadableList(getUserOutput.getObservedBy()));
-        Button button = (Button) v.findViewById(R.id.userChangeAvatarButton);
+        button = (Button) v.findViewById(R.id.userChangeAvatarButton);
         selectedPhotoImageView = (ImageView) v.findViewById(R.id.userAvatarImageView);
         if(getUserOutput.getAvatarBinaryData() != null){
             Utils.setImageViewByBytesArray(selectedPhotoImageView, getUserOutput.getAvatarBinaryData());
         }
 
 
-        if(getUserInput.getAuthenticationData().getUsername().equals(getUserInput.getUsername())){
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    selectPhotoButtonAction();
-                }
-            });
-        } else {
+//        if(getUserInput.getAuthenticationData().getUsername().equals(getUserInput.getUsername())){
+//            button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    selectPhotoButtonAction();
+//                }
+//            });
+//        } else {
             if(getUserOutput.getObservedBy().contains(getUserInput.getAuthenticationData().getUsername())){
+                button.setText("Stop observing");
+                button.postInvalidate();
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -96,6 +107,8 @@ public class UserFragment extends Fragment {
                     }
                 });
             } else {
+                button.setText("Observe");
+                button.postInvalidate();
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -103,16 +116,56 @@ public class UserFragment extends Fragment {
                     }
                 });
             }
-        }
+//        }
 
     }
 
     private void observe() {
+        ObservationInput input = new ObservationInput();
+        input.setAuthenticationData(LoginActivity.authenticationData);
+        input.setUsername(getUserInput.getUsername());
+        input.setUnObserve(false);
+        new ServerTask<ObservationInput, ObservationOutput, MenuActivity>((MenuActivity)getActivity(), input, UrlData.OBSERVATION_PATH) {
 
+            @Override
+            protected void doSomethingWithOutput(ObservationOutput o) {
+                HashSet<String> set = Utils.parseToList(userObservedByTextView.getText().toString());
+                set.add(LoginActivity.authenticationData.getUsername());
+                userObservedByTextView.setText(Utils.parseReadableList(set));
+                button.setText("Stop observing");
+                button.postInvalidate();
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        unObserve();
+                    }
+                });
+            }
+        }.execute();
     }
 
     private void unObserve() {
+        ObservationInput input = new ObservationInput();
+        input.setAuthenticationData(LoginActivity.authenticationData);
+        input.setUsername(getUserInput.getUsername());
+        input.setUnObserve(true);
+        new ServerTask<ObservationInput, ObservationOutput, MenuActivity>((MenuActivity)getActivity(), input, UrlData.OBSERVATION_PATH) {
 
+            @Override
+            protected void doSomethingWithOutput(ObservationOutput o) {
+                HashSet<String> set = Utils.parseToList(userObservedByTextView.getText().toString());
+                set.remove(LoginActivity.authenticationData.getUsername());
+                userObservedByTextView.setText(Utils.parseReadableList(set));
+                button.setText("Observe");
+                button.postInvalidate();
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        observe();
+                    }
+                });
+            }
+        }.execute();
     }
 
     private void changeAvatar() {
