@@ -31,6 +31,10 @@ public class AddCommentController extends AutowiredController {
 
             AddCommentOutput output = new AddCommentOutput();
 
+            if (input.getComment().replaceAll("\\s+", "").isEmpty()) {
+                return new ResponseEntity<>("Comment can't be empty", HttpStatus.BAD_REQUEST);
+            }
+
             mockOutput(input, output);
 
 

@@ -30,6 +30,18 @@ public class AddPhotoController extends AutowiredController {
 
             AddPhotoOutput output = new AddPhotoOutput();
 
+            if (input.getCharactersList().isEmpty()) {
+                return new ResponseEntity<>("Characters list can't be empty", HttpStatus.BAD_REQUEST);
+            }
+
+            if (input.getFranchisesList().isEmpty()) {
+                return new ResponseEntity<>("Franchises list can't be empty", HttpStatus.BAD_REQUEST);
+            }
+
+            if (input.getPhotoDescription().replaceAll("\\s+", "").isEmpty()) {
+                return new ResponseEntity<>("Description can't be empty", HttpStatus.BAD_REQUEST);
+            }
+
             mockOutput(input, output);
 
             byte[] byteOutput = SerializationUtils.serialize(output);

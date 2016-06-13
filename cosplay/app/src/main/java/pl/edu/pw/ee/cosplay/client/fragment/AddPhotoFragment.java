@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -73,8 +75,10 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
         Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         pickIntent.setType("image/*");
 
-        Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+
+        Intent chooserIntent = Intent.createChooser(getIntent, "Select method");
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent, cameraIntent});
 
         startActivityForResult(chooserIntent, Integer.valueOf(0));
     }
@@ -87,12 +91,18 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
                 return;
             }
             try {
-                InputStream photoInputStream = getActivity().getContentResolver().openInputStream(data.getData());
-                selectedPhotoImageView.setImageBitmap(BitmapFactory.decodeStream(photoInputStream));
+                Bitmap photo = (Bitmap) data.getExtras().get("data");
+                selectedPhotoImageView.setImageBitmap(photo);
                 v.findViewById(R.id.addPhotoButton).setVisibility(View.VISIBLE);
                 v.findViewById(R.id.selectedPhotoImageView).setVisibility(View.VISIBLE);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            } catch (NullPointerException e){
+                try {
+                    InputStream photoInputStream = getActivity().getContentResolver().openInputStream(data.getData());
+                    selectedPhotoImageView.setImageBitmap(BitmapFactory.decodeStream(photoInputStream));
+                    v.findViewById(R.id.addPhotoButton).setVisibility(View.VISIBLE);
+                    v.findViewById(R.id.selectedPhotoImageView).setVisibility(View.VISIBLE);
+                } catch (FileNotFoundException ignored) {
+                }
             }
         }
     }
