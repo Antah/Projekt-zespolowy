@@ -84,7 +84,7 @@ public class UserFragment extends Fragment {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    changeAvatar();
+                    selectPhotoButtonAction();
                 }
             });
         } else {
@@ -116,7 +116,6 @@ public class UserFragment extends Fragment {
     }
 
     private void changeAvatar() {
-        selectPhotoButtonAction();
         ChangeAvatarInput changeAvatarInput = new ChangeAvatarInput();
         changeAvatarInput.setAuthenticationData(LoginActivity.authenticationData);
         changeAvatarInput.setAvatarBinaryData(Utils.getBytesFromAvatarImageView(selectedPhotoImageView));
@@ -153,6 +152,7 @@ public class UserFragment extends Fragment {
             try {
                 InputStream photoInputStream = getActivity().getContentResolver().openInputStream(data.getData());
                 selectedPhotoImageView.setImageBitmap(BitmapFactory.decodeStream(photoInputStream));
+                changeAvatar();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

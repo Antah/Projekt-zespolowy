@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
@@ -51,6 +52,17 @@ public class Utils {
             j++;
         }
         return s.toString();
+    }
+
+
+    public static HashSet<String> parseToList(String s) {
+        HashSet<String> result = new HashSet<>();
+        s = s.replaceAll("\\s+","");
+        if(!s.isEmpty()) {
+            String[] resultList = s.split(",");
+            result.addAll(Arrays.asList(resultList));
+        }
+        return result;
     }
 
     public static String formatDate(Date date){

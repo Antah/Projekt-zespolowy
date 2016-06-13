@@ -129,8 +129,8 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
         input.setAuthenticationData(authenticationData);
         input.setPhotoDescription(descriptionEditText.getText().toString());
 
-        HashSet<String> franchisesList = parseToList(franchisesEditText.getText().toString());
-        HashSet<String> charactersList = parseToList(charactersEditText.getText().toString());
+        HashSet<String> franchisesList = Utils.parseToList(franchisesEditText.getText().toString());
+        HashSet<String> charactersList = Utils.parseToList(charactersEditText.getText().toString());
 
         input.setCharactersList(charactersList);
         input.setFranchisesList(franchisesList);
@@ -141,12 +141,6 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
         return input;
     }
 
-    private HashSet<String> parseToList(String s) {
-        HashSet<String> result = new HashSet<>();
-        String[] resultList = s.split(", ");
-        result.addAll(Arrays.asList(resultList));
-        return result;
-    }
 
     @Override
     public void onClick(View vi) {

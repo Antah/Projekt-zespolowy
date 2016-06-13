@@ -19,6 +19,7 @@ import pl.edu.pw.ee.cosplay.R;
 import pl.edu.pw.ee.cosplay.client.activity.MenuActivity;
 import pl.edu.pw.ee.cosplay.client.adapter.SimplePhotoListAdapter;
 import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
+import pl.edu.pw.ee.cosplay.client.utils.Utils;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphotoslist.GetPhotosListOutput;
@@ -60,8 +61,9 @@ public class AllPhotosFragment extends Fragment {
             @Override
             public void onClick(View vi) {
 
-                (new ServerTask<GetPhotosListInput, GetPhotosListOutput, MenuActivity>((MenuActivity)getActivity(), getInput(orderSpinner, v), UrlData.GET_PHOTOS_LIST_PATH) {
-                    @Override protected void doSomethingWithOutput(GetPhotosListOutput o) {
+                (new ServerTask<GetPhotosListInput, GetPhotosListOutput, MenuActivity>((MenuActivity) getActivity(), getInput(orderSpinner, v), UrlData.GET_PHOTOS_LIST_PATH) {
+                    @Override
+                    protected void doSomethingWithOutput(GetPhotosListOutput o) {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable(MenuActivity.GET_PHOTOS_LIST_OUTPUT, o);
                         bundle.putSerializable(MenuActivity.GET_PHOTOS_LIST_INPUT, this.input);
@@ -80,19 +82,13 @@ public class AllPhotosFragment extends Fragment {
         return v;
     }
 
-    private HashSet<String> parseToList(String s) {
-        HashSet<String> result = new HashSet<>();
-        String[] resultList = s.split(", ");
-        result.addAll(Arrays.asList(resultList));
-        return result;
-    }
 
     public GetPhotosListInput getInput(Spinner orderSpinner, View v) {
         final GetPhotosListInput input = new GetPhotosListInput();
         input.setRangeFirst(1);
         input.setRangeLast(MenuActivity.RANGE);
-        input.setFiltrByCharactersList(parseToList((charactersEditText.getText().toString())));
-        input.setFiltrByFranchiseList(parseToList((franchiseEditText.getText().toString())));
+        input.setFiltrByCharactersList(Utils.parseToList((charactersEditText.getText().toString())));
+        input.setFiltrByFranchiseList(Utils.parseToList((franchiseEditText.getText().toString())));
 
         switch ((int) orderSpinner.getSelectedItemId()){
             case 1:{
