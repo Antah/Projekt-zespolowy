@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -191,8 +192,10 @@ public class UserFragment extends Fragment {
         Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         pickIntent.setType("image/*");
 
+        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+
         Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
-        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent, cameraIntent});
 
         startActivityForResult(chooserIntent, Integer.valueOf(0));
     }
@@ -204,12 +207,18 @@ public class UserFragment extends Fragment {
             if (data == null) {
                 return;
             }
-            try {
-                InputStream photoInputStream = getActivity().getContentResolver().openInputStream(data.getData());
-                selectedPhotoImageView.setImageBitmap(BitmapFactory.decodeStream(photoInputStream));
+            try{
+                Bitmap photo = (Bitmap) data.getExtras().get("data");
+                selectedPhotoImageView.setImageBitmap(photo);
                 changeAvatar();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            }catch (NullPointerException e){
+                try {
+                    InputStream photoInputStream = getActivity().getContentResolver().openInputStream(data.getData());
+                    selectedPhotoImageView.setImageBitmap(BitmapFactory.decodeStream(photoInputStream));
+                    changeAvatar();
+                } catch (FileNotFoundException f) {
+                    e.printStackTrace();
+                }
             }
         }
     }
