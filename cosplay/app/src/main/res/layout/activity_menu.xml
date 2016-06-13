@@ -61,6 +61,7 @@
             android:id="@+id/button6"
             android:layout_weight="1"
             android:textSize="10dp"
+            android:onClick="yourProfileFragment"
             android:layout_gravity="bottom" />
     </LinearLayout>
 

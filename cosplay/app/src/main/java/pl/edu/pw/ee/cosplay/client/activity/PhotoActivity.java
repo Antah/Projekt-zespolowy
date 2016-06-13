@@ -81,6 +81,7 @@ public class PhotoActivity extends AppCompatActivity {
 
         //Des
         oneUserTextView.setText(data.getUsername());
+        setTitle(data.getUsername() + "'s photo");
         oneDateTextView.setText(Utils.formatDate(data.getUploadDate()));
         oneDescriptionTextView.setText(data.getDescription());
 

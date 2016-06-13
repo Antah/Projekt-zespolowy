@@ -30,7 +30,17 @@ public class Utils {
         return stream.toByteArray();
     }
 
+    public static byte[] getBytesFromAvatarImageView(ImageView imageView){
+        Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+        bitmap = getResizedBitmap(bitmap, 200);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, stream);
+        return stream.toByteArray();
+    }
+
     public static String parseReadableList(HashSet<String> list) {
+        if(list.isEmpty())
+            return "none";
         StringBuilder s = new StringBuilder();
         int j=0;
         for(String element : list){
