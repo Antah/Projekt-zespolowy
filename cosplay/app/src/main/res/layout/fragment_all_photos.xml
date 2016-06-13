@@ -18,7 +18,7 @@
             android:id="@+id/franchiseEditText"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="Franchises"
+            android:hint="Franchises"
             android:textSize="@dimen/abc_text_size_small_material" />
 
         <EditText
@@ -27,7 +27,7 @@
             android:id="@+id/characterEditText"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="Characters"
+            android:hint="Characters"
             android:textSize="@dimen/abc_text_size_small_material" />
 
         <Spinner

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp">
 
-        <ImageButton
+        <ImageView
             android:layout_width="@dimen/avatar_dimen"
             android:layout_height="@dimen/avatar_dimen"
             android:id="@+id/commentAvatarImageButton"

@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
                 bundle.putSerializable(AUTHENTICATION_DATA, o.getAuthenticationData());
                 intent.putExtras(bundle);
                 activity.startActivity(intent);
-                activity.finish();
             }
         }).execute();
     }

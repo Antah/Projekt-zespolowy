@@ -38,13 +38,14 @@ public class AllPhotosFragment extends Fragment {
     }
 
     String observer = null;
+    GetPhotosListInput getPhotosListInput;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_all_photos, container, false);
         GetPhotosListOutput getPhotosListOutput = (GetPhotosListOutput) getArguments().getSerializable(MenuActivity.GET_PHOTOS_LIST_OUTPUT);
-        GetPhotosListInput getPhotosListInput = (GetPhotosListInput) getArguments().getSerializable(MenuActivity.GET_PHOTOS_LIST_INPUT);
+        getPhotosListInput = (GetPhotosListInput) getArguments().getSerializable(MenuActivity.GET_PHOTOS_LIST_INPUT);
         ListView listView = (ListView) v.findViewById(R.id.simplePhotosListView);
         listView.setAdapter(new SimplePhotoListAdapter(v.getContext(), R.layout.simple_photo_item, getPhotosListOutput, getPhotosListInput, (MenuActivity) getActivity()));
 
@@ -84,61 +85,60 @@ public class AllPhotosFragment extends Fragment {
 
 
     public GetPhotosListInput getInput(Spinner orderSpinner, View v) {
-        final GetPhotosListInput input = new GetPhotosListInput();
-        input.setRangeFirst(1);
-        input.setRangeLast(MenuActivity.RANGE);
-        input.setFiltrByCharactersList(Utils.parseToList((charactersEditText.getText().toString())));
-        input.setFiltrByFranchiseList(Utils.parseToList((franchiseEditText.getText().toString())));
+        getPhotosListInput.setRangeFirst(1);
+        getPhotosListInput.setRangeLast(MenuActivity.RANGE);
+        getPhotosListInput.setFiltrByCharactersList(Utils.parseToList((charactersEditText.getText().toString())));
+        getPhotosListInput.setFiltrByFranchiseList(Utils.parseToList((franchiseEditText.getText().toString())));
 
         switch ((int) orderSpinner.getSelectedItemId()){
             case 1:{
-                input.setOrder(PhotosOrder.COMMENTS_NO);
+                getPhotosListInput.setOrder(PhotosOrder.COMMENTS_NO);
                 break;
             }
             case 2:{
-                input.setOrder(PhotosOrder.GENERAL_RATE);
+                getPhotosListInput.setOrder(PhotosOrder.GENERAL_RATE);
                 break;
             }
             case 3:{
-                input.setOrder(PhotosOrder.SIMILARITY_RATE);
+                getPhotosListInput.setOrder(PhotosOrder.SIMILARITY_RATE);
                 break;
             }
             case 4:{
-                input.setOrder(PhotosOrder.QUALITY_RATE);
+                getPhotosListInput.setOrder(PhotosOrder.QUALITY_RATE);
                 break;
             }
             case 5:{
-                input.setOrder(PhotosOrder.ARRANGEMENT_RATE);
+                getPhotosListInput.setOrder(PhotosOrder.ARRANGEMENT_RATE);
                 break;
             }
             case 6:{
-                input.setOrder(PhotosOrder.UPLOAD_DATE);
+                getPhotosListInput.setOrder(PhotosOrder.UPLOAD_DATE);
                 break;
             }
             case 7:{
-                input.setOrder(PhotosOrder.COMMENTS_NO_DESC);
+                getPhotosListInput.setOrder(PhotosOrder.COMMENTS_NO_DESC);
                 break;
             }
             case 8:{
-                input.setOrder(PhotosOrder.GENERAL_RATE_DESC);
+                getPhotosListInput.setOrder(PhotosOrder.GENERAL_RATE_DESC);
                 break;
             }
             case 9:{
-                input.setOrder(PhotosOrder.SIMILARITY_RATE_DESC);
+                getPhotosListInput.setOrder(PhotosOrder.SIMILARITY_RATE_DESC);
                 break;
             }
             case 10:{
-                input.setOrder(PhotosOrder.QUALITY_RATE_DESC);
+                getPhotosListInput.setOrder(PhotosOrder.QUALITY_RATE_DESC);
                 break;
             }
             case 11:{
-                input.setOrder(PhotosOrder.ARRANGEMENT_RATE_DESC);
+                getPhotosListInput.setOrder(PhotosOrder.ARRANGEMENT_RATE_DESC);
                 break;
             }
             default:{
-                input.setOrder(PhotosOrder.UPLOAD_DATE_DESC);
+                getPhotosListInput.setOrder(PhotosOrder.UPLOAD_DATE_DESC);
             }
         }
-        return input;
+        return getPhotosListInput;
     }
 }

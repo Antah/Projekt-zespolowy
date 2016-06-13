@@ -39,6 +39,8 @@ public class PhotoActivity extends AppCompatActivity {
 
     GetPhotoInput getPhotoInput;
     Context context;
+    OnePhotoAdapter onePhotoAdapter;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,8 @@ public class PhotoActivity extends AppCompatActivity {
             @Override
             protected void doSomethingWithOutput(GetPhotoOutput o) {
                 setActivityData(o);
-                OnePhotoAdapter onePhotoAdapter = new OnePhotoAdapter(activity, R.layout.comment_item, o.getComments());
-                ListView listView = (ListView) findViewById(R.id.commentListView);
+                onePhotoAdapter = new OnePhotoAdapter(activity, R.layout.comment_item, o.getComments());
+                listView = (ListView) findViewById(R.id.commentListView);
                 listView.setAdapter(onePhotoAdapter);
                 onePhotoLayoutId.setVisibility(View.VISIBLE);
             }
@@ -103,6 +105,8 @@ public class PhotoActivity extends AppCompatActivity {
         //Avatar
         if(data.getAvatarBinaryData() != null){
             Utils.setImageViewByBytesArray(oneAvatarImageButton, data.getAvatarBinaryData());
+        } else {
+            oneAvatarImageButton.setImageResource(R.mipmap.user);
         }
 
         oneAvatarImageButton.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +131,15 @@ public class PhotoActivity extends AppCompatActivity {
                     @Override
                     protected void doSomethingWithOutput(AddCommentOutput o) {
                         Toast.makeText(activity, "Comment sent", Toast.LENGTH_SHORT).show();
+                        (new ServerTask<GetPhotoInput, GetPhotoOutput, PhotoActivity>(activity, getPhotoInput, UrlData.GET_PHOTO_PATH){
+
+                            @Override
+                            protected void doSomethingWithOutput(GetPhotoOutput o) {
+                                onePhotoAdapter = new OnePhotoAdapter(activity, R.layout.comment_item, o.getComments());
+                                listView = (ListView) findViewById(R.id.commentListView);
+                                listView.setAdapter(onePhotoAdapter);
+                            }
+                        }).execute();
                     }
         }).execute();
     }

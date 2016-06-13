@@ -86,17 +86,19 @@ public class UserFragment extends Fragment {
         selectedPhotoImageView = (ImageView) v.findViewById(R.id.userAvatarImageView);
         if(getUserOutput.getAvatarBinaryData() != null){
             Utils.setImageViewByBytesArray(selectedPhotoImageView, getUserOutput.getAvatarBinaryData());
+        } else {
+            selectedPhotoImageView.setImageResource(R.mipmap.user);
         }
 
 
-//        if(getUserInput.getAuthenticationData().getUsername().equals(getUserInput.getUsername())){
-//            button.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    selectPhotoButtonAction();
-//                }
-//            });
-//        } else {
+        if(getUserInput.getAuthenticationData().getUsername().equals(getUserInput.getUsername())){
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectPhotoButtonAction();
+                }
+            });
+        } else {
             if(getUserOutput.getObservedBy().contains(getUserInput.getAuthenticationData().getUsername())){
                 button.setText("Stop observing");
                 button.postInvalidate();
@@ -116,7 +118,7 @@ public class UserFragment extends Fragment {
                     }
                 });
             }
-//        }
+        }
 
     }
 

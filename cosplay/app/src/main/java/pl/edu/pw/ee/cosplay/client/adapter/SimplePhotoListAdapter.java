@@ -141,6 +141,8 @@ public class SimplePhotoListAdapter extends ArrayAdapter<SimplePhotoData> {
         ImageView avatarImageButton = (ImageView) convertView.findViewById(R.id.avatarImageButton);
         if(simplePhotoData.getAvatarBinaryData() != null) {
             Utils.setImageViewByBytesArray(avatarImageButton, simplePhotoData.getAvatarBinaryData());
+        } else {
+            avatarImageButton.setImageResource(R.mipmap.user);
         }
 
         ImageView simplePhotoImageView = (ImageView) convertView.findViewById(R.id.simplePhotoImageView);

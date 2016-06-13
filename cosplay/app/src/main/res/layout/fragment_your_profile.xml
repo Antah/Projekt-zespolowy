@@ -112,10 +112,9 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:id="@+id/userPhotoListView"
         android:layout_above="@+id/button4"
-        android:layout_alignParentTop="true"
-        android:layout_weight="3" />
+        android:layout_alignParentTop="true" />
 
 </LinearLayout>

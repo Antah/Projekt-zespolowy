@@ -120,7 +120,7 @@ public class MenuActivity extends Activity{
     public void openProfileFragment(String username) {
         final GetUserInput userInput = new GetUserInput();
         userInput.setAuthenticationData(LoginActivity.authenticationData);
-        userInput.setUsername(LoginActivity.authenticationData.getUsername());
+        userInput.setUsername(username);
 
         final GetPhotosListOutput photoOutput = new GetPhotosListOutput();
         photoOutput.setAreThereNextPhotos(false);

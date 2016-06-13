@@ -155,7 +155,7 @@ public class GetPhotosListController extends AutowiredController {
         for (McPhotoEntity photoEntity : photoEntities) {
             Boolean isObserved = false;
             for (McObservationEntity observed : observer.getObservationsByUsername()) {
-                if (observed.getUserByObserved() == photoEntity.getUserByUsername()) {
+                if (observed.getUserByObserver() == photoEntity.getUserByUsername()) {
                     isObserved = true;
                     break;
                 }
