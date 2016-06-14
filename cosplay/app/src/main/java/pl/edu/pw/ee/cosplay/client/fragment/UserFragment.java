@@ -85,6 +85,8 @@ public class UserFragment extends Fragment {
         userObservedByTextView.setText(Utils.parseReadableList(getUserOutput.getObservedBy()));
         button = (Button) v.findViewById(R.id.userChangeAvatarButton);
         selectedPhotoImageView = (ImageView) v.findViewById(R.id.userAvatarImageView);
+        TextView userNickNameTextView = (TextView) v.findViewById(R.id.userNickNameTextView);
+        userNickNameTextView.setText(getUserOutput.getUsername());
         if(getUserOutput.getAvatarBinaryData() != null){
             Utils.setImageViewByBytesArray(selectedPhotoImageView, getUserOutput.getAvatarBinaryData());
         } else {
