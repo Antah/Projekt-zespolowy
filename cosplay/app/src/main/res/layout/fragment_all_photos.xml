@@ -10,7 +10,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundItem">
 
         <EditText
             android:layout_width="match_parent"
@@ -19,7 +20,8 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:hint="Franchises"
-            android:textSize="@dimen/abc_text_size_small_material" />
+            android:textSize="10dp"
+            android:layout_marginLeft="12dp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -28,7 +30,7 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:hint="Characters"
-            android:textSize="@dimen/abc_text_size_small_material" />
+            android:textSize="10dp" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -36,7 +38,8 @@
             android:id="@+id/sortSpinner"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/colorGreenLight"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -44,7 +47,8 @@
             android:text="SHOW"
             android:id="@+id/showAndFilterButton"
             android:layout_gravity="center"
-            />
+            android:backgroundTint="@color/colorGreenLight"
+            android:layout_marginRight="12dp" />
     </LinearLayout>
 
     <ListView

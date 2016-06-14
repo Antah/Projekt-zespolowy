@@ -9,8 +9,8 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 
 public class LauncherActivity extends Activity {
 
-    //private static final String SERVER_IP = "http://shafear.space";
-    private static final String SERVER_IP = "http://192.168.43.129";
+    private static final String SERVER_IP = "http://vps.shafear.space";
+    //private static final String SERVER_IP = "http://192.168.43.129";
     private static final Integer PORT = 8080;
 
     @Override

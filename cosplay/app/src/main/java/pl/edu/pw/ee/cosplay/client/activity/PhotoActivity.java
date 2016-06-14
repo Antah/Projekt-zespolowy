@@ -126,19 +126,19 @@ public class PhotoActivity extends AppCompatActivity {
             }
         });
 
-        onePhotoImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final AlertDialog.Builder popDialog = new AlertDialog.Builder(context);
-                final LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
-                final View photoLayout = inflater.inflate(R.layout.popup_photo, (ViewGroup) findViewById(R.id.layout_photo));
-                popDialog.setView(photoLayout);
-                final ImageView imageView = (ImageView) photoLayout.findViewById(R.id.popupPhotoImageView);
-                Drawable clone = onePhotoImageView.getDrawable().getConstantState().newDrawable();
-                imageView.setImageDrawable(clone);
-                popDialog.show();
-            }
-        });
+//        onePhotoImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final AlertDialog.Builder popDialog = new AlertDialog.Builder(context);
+//                final LayoutInflater inflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
+//                final View photoLayout = inflater.inflate(R.layout.popup_photo, (ViewGroup) findViewById(R.id.layout_photo));
+//                popDialog.setView(photoLayout);
+//                final ImageView imageView = (ImageView) photoLayout.findViewById(R.id.popupPhotoImageView);
+//                Drawable clone = onePhotoImageView.getDrawable().getConstantState().newDrawable();
+//                imageView.setImageDrawable(clone);
+//                popDialog.show();
+//            }
+//        });
 
         View layout = findViewById(R.id.photoRatingLayout);
         layout.setOnClickListener(new View.OnClickListener() {
