@@ -87,6 +87,3 @@ create table rating(
   foreign key (photo_id) references photo(photo_id),
   foreign key (username) references user(username)
 );
-
-insert into user(username, passwd) VALUES ('Shafear', 'password');
-insert into user(username, passwd) VALUES ('Threexe', 'password');
