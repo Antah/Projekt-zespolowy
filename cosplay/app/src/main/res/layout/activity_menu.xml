@@ -3,12 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="pl.edu.pw.ee.cosplay.client.activity.MenuActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:outlineProvider="bounds">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -22,7 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/fragment"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:background="@color/colorBackgroundItem">
 
         <Button
             android:layout_width="wrap_content"
@@ -32,7 +33,8 @@
             android:layout_weight="1"
             android:textSize="10dp"
             android:layout_gravity="bottom"
-            android:onClick="observedPhotosFragment"/>
+            android:onClick="observedPhotosFragment"
+            android:backgroundTint="@color/colorGreenLight" />
 
         <Button
             android:layout_width="wrap_content"
@@ -42,7 +44,8 @@
             android:layout_weight="1"
             android:textSize="10dp"
             android:layout_gravity="bottom"
-            android:onClick="allPhotosFragment"/>
+            android:onClick="allPhotosFragment"
+            android:backgroundTint="@color/colorGreenLight" />
 
         <Button
             android:layout_width="wrap_content"
@@ -52,7 +55,8 @@
             android:layout_weight="1"
             android:textSize="10dp"
             android:layout_gravity="bottom"
-            android:onClick="addPhotoFragment"/>
+            android:onClick="addPhotoFragment"
+            android:backgroundTint="@color/colorGreenLight" />
 
         <Button
             android:layout_width="wrap_content"
@@ -62,7 +66,8 @@
             android:layout_weight="1"
             android:textSize="10dp"
             android:onClick="yourProfileFragment"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/colorGreenLight" />
     </LinearLayout>
 
 </LinearLayout>

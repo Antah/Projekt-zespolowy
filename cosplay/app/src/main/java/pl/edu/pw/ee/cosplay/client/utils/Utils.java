@@ -27,15 +27,15 @@ public class Utils {
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         bitmap = getResizedBitmap(bitmap, 720);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
         return stream.toByteArray();
     }
 
     public static byte[] getBytesFromAvatarImageView(ImageView imageView){
         Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-        bitmap = getResizedBitmap(bitmap, 200);
+        bitmap = Bitmap.createScaledBitmap(bitmap, 200, 200, false);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, stream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
         return stream.toByteArray();
     }
 

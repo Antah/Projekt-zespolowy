@@ -3,126 +3,149 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".client.fragment.AllPhotosFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/userNickNameTextView"
-        android:layout_margin="8dp" />
-
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="6">
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView3" >
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_weight="6">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/userAvatarImageView"
+                    android:src="@mipmap/user"
+                    android:background="@color/colorPhotoBG"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Username"
+                    android:id="@+id/userNickNameTextView"
+                    android:textAlignment="center"
+                    android:background="@color/colorAccent"
+                    android:textColor="@color/colorBackgroundText"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:textSize="32dp"
+                    android:ellipsize="end"
+                    android:lines="1"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="6dp">
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@color/colorBackgroundItem"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
 
-                <ImageView
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Observed by"
+                    android:id="@+id/textView15"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center" />
+
+
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/userAvatarImageView"
-                    android:src="@mipmap/user"
-                    android:background="#1c000000"
-                    android:layout_weight="1" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="user1, user2"
+                    android:id="@+id/userObservedByTextView"
+                    android:layout_weight="1"
+                    android:padding="5dp" />
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/userUsernameTextView"
-                android:layout_margin="6dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@color/colorBackgroundItem"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Is observing"
+                    android:id="@+id/TextView666"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="user1, user2"
+                    android:id="@+id/userIsObserving"
+                    android:layout_weight="1"
+                    android:padding="5dp" />
+
+            </LinearLayout>
 
             <Button
                 style="?android:attr/buttonStyleSmall"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Change Avatar"
                 android:id="@+id/userChangeAvatarButton"
-                android:layout_margin="6dp"
-                android:layout_weight="1"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:backgroundTint="@color/colorButton1" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="6dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Is observed by:"
-                android:id="@+id/textView15" />
-
-            <TextView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="user1, user2"
-                android:id="@+id/userObservedByTextView"
-                android:layout_weight="1" />
+                android:layout_height="match_parent">
+
+
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userPhotoListView"
+                    android:layout_above="@+id/button4"
+                    android:layout_alignParentTop="true"
+                    android:fastScrollAlwaysVisible="false"
+                    android:nestedScrollingEnabled="true"/>
+            </LinearLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_margin="6dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Is observing:"
-                android:id="@+id/TextView666" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="user1, user2"
-                android:id="@+id/userIsObserving"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Last added photo:"
-        android:id="@+id/textView17" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/userPhotoListView"
-        android:layout_above="@+id/button4"
-        android:layout_alignParentTop="true" />
+    </ScrollView>
 
 </LinearLayout>

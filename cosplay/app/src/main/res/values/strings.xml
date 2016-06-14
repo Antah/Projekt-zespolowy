@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CosplayBOOK</string>
+    <string name="app_name">CosplayBooK</string>
 
     <string-array name="photoOrder">
         <item>Newest</item>
