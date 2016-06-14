@@ -41,7 +41,7 @@ public class GetPhotoController extends AutowiredController {
             commentData.setUsername(commentEntity.getUserByUsername().getUsername());
             if (commentEntity.getUserByUsername().getBinaryPhotoByAvatarBinaryPhotoId() != null)
                 commentData.setAvatarBinaryData(commentEntity.getUserByUsername().getBinaryPhotoByAvatarBinaryPhotoId().getBinaryData());
-            output.getComments().add(0, commentData);
+            output.getComments().add(commentData);
         }
     }
 
