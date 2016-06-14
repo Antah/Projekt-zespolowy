@@ -14,6 +14,7 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerOutput;
 import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
 import pl.edu.pw.ee.cosplay.rest.server.entity.McUserEntity;
+import pl.edu.pw.ee.cosplay.rest.server.security.AES;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
 /**
@@ -42,8 +43,7 @@ public class LoginController extends AutowiredController {
     }
 
     private ResponseEntity<?> userFound(McUserEntity user, LoginControllerInput input) {
-        //TODO: Jak już będzie rejestracja to z jakimś szyfrowaniem
-        if (user.getPasswd().equals(input.getPassword())) {
+        if (AES.isPasswordCorrect(input.getPassword(), user.getPasswd())) {
             return userFoundCorrectPassword(user);
         } else {
             return userFoundWrongPassword();

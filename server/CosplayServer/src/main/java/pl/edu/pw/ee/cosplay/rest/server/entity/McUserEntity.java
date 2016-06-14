@@ -12,7 +12,6 @@ public class McUserEntity {
     private String username;
 
     @Id
-    @GeneratedValue
     @Column(name = "username")
     public String getUsername() {
         return username;

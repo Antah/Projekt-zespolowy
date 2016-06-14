@@ -15,4 +15,36 @@
         <item>Worst quality</item>
         <item>Worst arrangement</item>
     </string-array>
+
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="sign_un_button">Sign up</string>
+    <string name="in_game_name">In game name</string>
+    <string name="repassword">Reply password</string>
+    <string name="title_activity_sign_up">Hide and Seek RPG - Sign Up</string>
+    <string name="wrong_login_or_password_title">Wrong login or pasword</string>
+    <string name="wrong_login_or_password_message">Your login and password are incorrect, please try again or create an account.</string>
+    <string name="wrong_repassword_input_title">Passwords don\'t match.</string>
+    <string name="wrong_repassword_input_message">Reply password is not the same as origin one.</string>
+    <string name="wrong_login_lenght_title">Wrong input</string>
+    <string name="wrong_login_lenght_message">Login should have at least 3 characters.</string>
+    <string name="wrong_password_lenght_title">Wrong input</string>
+    <string name="wrong_password_lenght_message">Password should have at least 8 characters.</string>
+    <string name="empty_input_title">Wrong input</string>
+    <string name="empty_input_message">Your input is empty.</string>
+    <string name="user_added_title">User added</string>
+    <string name="user_added_message">User added successfully</string>
+    <string name="user_already_exists_title">User already exists</string>
+    <string name="user_already_exists_message">User already exists, please choose other login.</string>
+    <string name="user_logged_title">User logged</string>
+    <string name="user_logged_message">You\'re successfully logged</string>
+    <string name="wrong_login_and_password_title">Wrong input</string>
+    <string name="wrong_login_and_password_message">Your login and password don\'t match</string>
+    <string name="db_error_title">Server error</string>
+    <string name="db_error_message">Please try again</string>
+    <string name="error_alert_title">Error</string>
+    <string name="error_alert_message">Some error, please try again</string>
+    <string name="not_logged_error_title">Not logged</string>
+    <string name="not_logged_error_message">You\'re not logged. Please login again.</string>
 </resources>

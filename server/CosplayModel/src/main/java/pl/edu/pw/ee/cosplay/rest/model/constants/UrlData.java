@@ -27,6 +27,9 @@ public class UrlData {
 
     public static final String OBSERVATION_PATH = "/observation";
 
+    public static final String REGISTER_PATH = "/register";
+
+
     public static String getServerIp() {
         return SERVER_IP;
     }
