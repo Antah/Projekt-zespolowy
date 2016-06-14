@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/descriptionEditText"
-        android:text="My description..." />
+        android:hint="Enter your description" />
 
     <TextView
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/franchisesEditText"
-        android:text="Franchise1, Franchise2" />
+        android:hint="Enter franchises separated by coma" />
 
     <TextView
         android:layout_width="match_parent"
@@ -66,12 +66,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/charactersEditText"
-        android:text="Character1, Character2" />
+        android:hint="Enter characters separated by coma" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add photo!"
+        android:text="Add photo"
         android:id="@+id/addPhotoButton"
         android:layout_gravity="center_horizontal"
         android:visibility="invisible" />

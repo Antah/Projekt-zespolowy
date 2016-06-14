@@ -1,4 +1,4 @@
-SET GLOBAL max_allowed_packet = 1024*1024*1024;
+SET GLOBAL max_allowed_packet = 1024*1024*1024*1024;
 
 drop table if exists rating;
 drop table if exists comment;
@@ -39,7 +39,7 @@ create table photo(
   photo_id int primary key AUTO_INCREMENT,
   photo_binary_photo_id int,
   username nvarchar(16),
-  upload_date date,
+  upload_date timestamp,
   description nvarchar(512),
   foreign key (username) references user(username),
   foreign key (photo_binary_photo_id) references binary_photo(binary_photo_id)
@@ -69,7 +69,7 @@ create table comment(
   comment_id int primary key AUTO_INCREMENT,
   content nvarchar(256),
   username nvarchar(16),
-  comment_date date,
+  comment_date timestamp,
   photo_id int,
   foreign key (photo_id) references photo(photo_id),
   foreign key (username) references user(username)

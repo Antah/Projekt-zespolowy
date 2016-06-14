@@ -11,21 +11,32 @@ import pl.edu.pw.ee.cosplay.rest.model.constants.ErrorMessage;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.addcomment.AddCommentOutput;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McCommentEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
+
+import java.sql.Date;
 
 @RestController()
 @RequestMapping(UrlData.ADD_COMMENT_CONTROLLER)
-public class AddCommentController {
+public class AddCommentController extends AutowiredController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addComment(@RequestBody byte[] byteInput) {
         AddCommentInput input = (AddCommentInput) SerializationUtils.deserialize(byteInput);
         if (LoggedUsers.isLogged(input.getAuthenticationData())) {
 
+            if (input.getComment().length() > 256) {
+                return commentTooLong();
+            }
+
             AddCommentOutput output = new AddCommentOutput();
 
-            //TODO: Implementacja
+            if (input.getComment().replaceAll("\\s+", "").isEmpty()) {
+                return new ResponseEntity<>("Comment can't be empty", HttpStatus.BAD_REQUEST);
+            }
+
             mockOutput(input, output);
+
 
             byte[] byteOutput = SerializationUtils.serialize(output);
             return new ResponseEntity<>(byteOutput, HttpStatus.OK);
@@ -34,8 +45,18 @@ public class AddCommentController {
         }
     }
 
-    private void mockOutput(AddCommentInput input, AddCommentOutput output) {
+    private ResponseEntity<?> commentTooLong() {
+        return new ResponseEntity<>(ErrorMessage.COMMENT_TOO_LONG, HttpStatus.BAD_REQUEST);
+    }
 
+
+    private void mockOutput(AddCommentInput input, AddCommentOutput output) {
+        McCommentEntity commentEntity = new McCommentEntity();
+        commentEntity.setContent(input.getComment());
+        commentEntity.setUserByUsername(userDAO.getUserByLogin(input.getAuthenticationData().getUsername()));
+        commentEntity.setCommentDate(new Date(System.currentTimeMillis()));
+        commentEntity.setPhotoByPhotoId(photoDAO.findOne(input.getPhotoId()));
+        commentDAO.save(commentEntity);
     }
 
 }

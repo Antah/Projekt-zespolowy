@@ -1,7 +1,7 @@
 package pl.edu.pw.ee.cosplay.rest.server.security;
 
-import pl.edu.pw.ee.cosplay.rest.model.entity.McUserEntity;
 import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
+import pl.edu.pw.ee.cosplay.rest.server.entity.McUserEntity;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -17,12 +17,7 @@ public class LoggedUsers {
         Random random = new Random();
         String token = String.valueOf((user.getUsername() + random.nextInt() + System.currentTimeMillis()).hashCode());
         AuthenticationData data = new AuthenticationData(user.getUsername(), token);
-        if (loggedUsers.get(user.getUsername()) != null) {
-            loggedUsers.remove(user.getUsername());
-            loggedUsers.put(user.getUsername(), token);
-        } else {
-            loggedUsers.put(user.getUsername(), token);
-        }
+        loggedUsers.put(user.getUsername(), token);
         return data;
     }
 

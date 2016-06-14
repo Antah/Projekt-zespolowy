@@ -5,9 +5,9 @@ import java.io.Serializable;
 /**
  * Created by Micha³ on 2016-05-20.
  */
-public class RatingData implements Serializable{
+public class RatingData implements Serializable {
 
-    private Integer generalRate, similarityRate, qualityRate, arrangementRate;
+    private Integer generalRate = 0, similarityRate = 0, qualityRate = 0, arrangementRate = 0;
 
     public Integer getGeneralRate() {
         return generalRate;

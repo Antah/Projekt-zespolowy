@@ -1,13 +1,16 @@
 package pl.edu.pw.ee.cosplay.rest.model.controller.photos;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by Micha³ on 2016-06-03.
  */
-public class CommentData implements Serializable{
+public class CommentData implements Serializable {
 
     private String username;
+
+    private Date commentDate;
 
     //mo¿e byæ null, je¿eli u¿ytkownik, który wstawi³ zdjêcie nie ma awatara
     private byte[] avatarBinaryData = null;
@@ -36,5 +39,13 @@ public class CommentData implements Serializable{
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public Date getCommentDate() {
+        return commentDate;
+    }
+
+    public void setCommentDate(Date commentDate) {
+        this.commentDate = commentDate;
     }
 }

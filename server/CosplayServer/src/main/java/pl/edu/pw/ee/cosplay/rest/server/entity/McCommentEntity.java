@@ -1,21 +1,20 @@
-package pl.edu.pw.ee.cosplay.rest.model.entity;
+package pl.edu.pw.ee.cosplay.rest.server.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+
 
 /**
- * Created by Micha≈Ç on 2016-05-14.
+ * Created by Micha≥ on 2016-06-12.
  */
 @Entity
 @Table(name = "comment", schema = "", catalog = "cosplay")
-public class McCommentEntity implements Serializable {
+public class McCommentEntity {
     private Integer commentId;
     private String content;
     private Date commentDate;
-    private Integer photoId;
-    private String username;
-
+    private McPhotoEntity photoByPhotoId;
+    private McUserEntity userByUsername;
 
     @Id
     @GeneratedValue
@@ -39,6 +38,7 @@ public class McCommentEntity implements Serializable {
     }
 
     @Basic
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "comment_date")
     public Date getCommentDate() {
         return commentDate;
@@ -46,26 +46,6 @@ public class McCommentEntity implements Serializable {
 
     public void setCommentDate(Date commentDate) {
         this.commentDate = commentDate;
-    }
-
-    @Basic
-    @Column(name = "photo_id")
-    public Integer getPhotoId() {
-        return photoId;
-    }
-
-    public void setPhotoId(Integer photoId) {
-        this.photoId = photoId;
-    }
-
-    @Basic
-    @Column(name = "username")
-    public String getUsername() {
-        return this.username;
-    }
-
-    public void setUsername(final String username) {
-        this.username = username;
     }
 
     @Override
@@ -88,5 +68,25 @@ public class McCommentEntity implements Serializable {
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (commentDate != null ? commentDate.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne(cascade = {})
+    @JoinColumn(name = "photo_id", referencedColumnName = "photo_id", nullable = true, insertable = true, updatable = true, table = "")
+    public McPhotoEntity getPhotoByPhotoId() {
+        return photoByPhotoId;
+    }
+
+    public void setPhotoByPhotoId(McPhotoEntity photoByPhotoId) {
+        this.photoByPhotoId = photoByPhotoId;
+    }
+
+    @ManyToOne(cascade = {})
+    @JoinColumn(name = "username", referencedColumnName = "username", nullable = true, insertable = true, updatable = true, table = "")
+    public McUserEntity getUserByUsername() {
+        return userByUsername;
+    }
+
+    public void setUserByUsername(McUserEntity userByUsername) {
+        this.userByUsername = userByUsername;
     }
 }

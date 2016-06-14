@@ -1,13 +1,13 @@
 package pl.edu.pw.ee.cosplay.rest.model.controller.photos;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 
 /**
  * Created by Micha³ on 2016-05-20.
  */
-public class SimplePhotoData implements Serializable{
+public class SimplePhotoData implements Serializable {
 
     private String username;
 

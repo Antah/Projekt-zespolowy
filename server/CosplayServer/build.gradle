@@ -5,8 +5,8 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 jar {
     baseName = 'CosplayServer'
@@ -24,6 +24,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("com.google.collections:google-collections:1.0")
+    compile("org.springframework.boot:spring-boot-starter-security:1.2.0.RELEASE")
+    compile("org.springframework.boot:spring-boot-devtools")
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
