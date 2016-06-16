@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
+
 @RestController()
 @RequestMapping(UrlData.GET_PHOTOS_LIST_PATH)
 public class GetPhotosListController extends AutowiredController {

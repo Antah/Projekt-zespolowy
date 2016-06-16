@@ -15,6 +15,7 @@ import pl.edu.pw.ee.cosplay.rest.server.entity.McObservationEntity;
 import pl.edu.pw.ee.cosplay.rest.server.entity.McUserEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
+
 @RestController()
 @RequestMapping(UrlData.GET_USER_PATH)
 public class GetUserController extends AutowiredController {

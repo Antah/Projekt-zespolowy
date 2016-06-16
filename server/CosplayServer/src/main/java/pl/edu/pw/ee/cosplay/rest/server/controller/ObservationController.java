@@ -15,6 +15,7 @@ import pl.edu.pw.ee.cosplay.rest.server.entity.McObservationEntity;
 import pl.edu.pw.ee.cosplay.rest.server.entity.McUserEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
+
 @RestController()
 @RequestMapping(UrlData.OBSERVATION_PATH)
 public class ObservationController extends AutowiredController {

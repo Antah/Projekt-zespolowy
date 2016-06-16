@@ -15,6 +15,7 @@ import pl.edu.pw.ee.cosplay.rest.server.entity.McBinaryPhotoEntity;
 import pl.edu.pw.ee.cosplay.rest.server.entity.McUserEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
+
 @RestController()
 @RequestMapping(UrlData.CHANGE_AVATAR_PATH)
 public class ChangeAvatarController extends AutowiredController {

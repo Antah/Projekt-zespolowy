@@ -14,6 +14,7 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoOutput
 import pl.edu.pw.ee.cosplay.rest.server.entity.McCommentEntity;
 import pl.edu.pw.ee.cosplay.rest.server.entity.McPhotoEntity;
 
+
 @RestController()
 @RequestMapping(UrlData.GET_PHOTO_PATH)
 public class GetPhotoController extends AutowiredController {

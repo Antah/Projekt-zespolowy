@@ -13,6 +13,7 @@ import pl.edu.pw.ee.cosplay.rest.model.controller.login.RegisterOutput;
 import pl.edu.pw.ee.cosplay.rest.server.entity.McUserEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.AES;
 
+
 @RestController()
 @RequestMapping(UrlData.REGISTER_PATH)
 public class RegisterController extends AutowiredController {

@@ -19,6 +19,7 @@ import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
 import java.sql.Date;
 
+
 @RestController()
 @RequestMapping(UrlData.ADD_PHOTO_PATH)
 public class AddPhotoController extends AutowiredController {

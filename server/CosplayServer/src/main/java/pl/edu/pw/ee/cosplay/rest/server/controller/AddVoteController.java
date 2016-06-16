@@ -16,6 +16,7 @@ import pl.edu.pw.ee.cosplay.rest.server.dao.RatingDAO;
 import pl.edu.pw.ee.cosplay.rest.server.entity.McRatingEntity;
 import pl.edu.pw.ee.cosplay.rest.server.security.LoggedUsers;
 
+
 /**
  * AddVoteController
  */
