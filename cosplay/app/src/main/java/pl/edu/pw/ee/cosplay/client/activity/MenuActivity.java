@@ -1,8 +1,10 @@
 package pl.edu.pw.ee.cosplay.client.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ import pl.edu.pw.ee.cosplay.client.fragment.AddPhotoFragment;
 import pl.edu.pw.ee.cosplay.client.fragment.AllPhotosFragment;
 import pl.edu.pw.ee.cosplay.client.fragment.UserFragment;
 import pl.edu.pw.ee.cosplay.client.networking.ServerTask;
+import pl.edu.pw.ee.cosplay.client.utils.Alerts;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerOutput;
@@ -58,6 +61,29 @@ public class MenuActivity extends Activity{
         transaction.replace(R.id.fragmentPlaceHolder, newFragment);
 
         transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setPositiveButton("TAK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    backPress();
+                }
+            });
+        builder.setNegativeButton("NIE", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.setMessage("Czy na pewno chcesz się wylogować?");
+        alertDialog.getWindow().setBackgroundDrawableResource(R.color.colorGreenLight);
+
+        alertDialog.show();
+    }
+
+    public void backPress(){
+        super.onBackPressed();
     }
 
     public void allPhotosFragment(View view) {

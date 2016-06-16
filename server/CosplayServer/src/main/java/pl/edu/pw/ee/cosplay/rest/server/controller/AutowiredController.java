@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.edu.pw.ee.cosplay.rest.server.dao.*;
 
 /**
- * Created by Micha≥ on 2016-06-12.
+ * Created by Micha≈Ç on 2016-06-12.
  */
 @RestController
 public class AutowiredController {
