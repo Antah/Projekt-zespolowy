@@ -1,6 +1,7 @@
 package pl.edu.pw.ee.cosplay.rest.server.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.ByteArrayHttpMessageConverter;
@@ -9,9 +10,12 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import pl.edu.pw.ee.cosplay.rest.model.constants.UrlData;
+import pl.edu.pw.ee.cosplay.rest.model.controller.login.LoginControllerOutput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoInput;
 import pl.edu.pw.ee.cosplay.rest.model.controller.photos.getphoto.GetPhotoOutput;
+import pl.edu.pw.ee.cosplay.rest.model.security.AuthenticationData;
 
+import java.io.IOException;
 import java.net.URI;
 
 /**
@@ -42,5 +46,17 @@ public class LoginControllerTest {
         } catch (HttpClientErrorException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void test() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        LoginControllerOutput output = new LoginControllerOutput();
+        output.setAuthenticationData(new AuthenticationData("test", "test"));
+        String json = objectMapper.writeValueAsString(output);
+        System.out.println(json);
+
+        LoginControllerOutput loginOutput = objectMapper.readValue(json, LoginControllerOutput.class);
+        loginOutput.setAuthenticationData(null);
     }
 }

@@ -127,6 +127,12 @@ public class AddPhotoFragment extends Fragment implements View.OnClickListener{
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(MenuActivity.GET_PHOTO_ID, getPhotoInput);
                 intent.putExtras(bundle);
+                charactersEditText.setText("");
+                charactersEditText.postInvalidate();
+                franchisesEditText.setText("");
+                franchisesEditText.postInvalidate();
+                descriptionEditText.setText("");
+                descriptionEditText.postInvalidate();
                 activity.startActivity(intent);
             }
         }).execute();

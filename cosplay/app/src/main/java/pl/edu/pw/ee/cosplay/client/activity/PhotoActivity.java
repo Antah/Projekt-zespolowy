@@ -295,7 +295,7 @@ public class PhotoActivity extends AppCompatActivity {
     }
 
     public void addCommentClick(View view) {
-        EditText editText = (EditText) findViewById(R.id.commentEditText);
+        final EditText editText = (EditText) findViewById(R.id.commentEditText);
         AddCommentInput addCommentInput = new AddCommentInput();
         addCommentInput.setAuthenticationData(LoginActivity.authenticationData);
         addCommentInput.setComment(editText.getText().toString());
@@ -311,6 +311,8 @@ public class PhotoActivity extends AppCompatActivity {
                                 onePhotoAdapter = new OnePhotoAdapter(activity, R.layout.comment_item, o.getComments());
                                 listView = (ListView) findViewById(R.id.commentListView);
                                 listView.setAdapter(onePhotoAdapter);
+                                editText.setText("");
+                                editText.postInvalidate();
                             }
                         }).execute();
                     }

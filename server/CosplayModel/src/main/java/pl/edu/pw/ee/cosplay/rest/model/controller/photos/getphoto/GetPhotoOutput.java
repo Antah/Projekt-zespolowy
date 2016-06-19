@@ -9,8 +9,7 @@ import java.util.ArrayList;
  * Created by Micha³ on 2016-06-03.
  */
 
-//Te same dane co w simple photo data, ale nie trzeba liczyæ iloœci komentarzy (commentsNumber)
-public class GetPhotoOutput extends SimplePhotoData{
+public class GetPhotoOutput extends SimplePhotoData {
 
     private String description;
 
