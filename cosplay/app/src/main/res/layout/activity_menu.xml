@@ -25,7 +25,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:background="@color/colorBackgroundItem">
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Observed by you"
@@ -34,9 +34,10 @@
             android:textSize="10dp"
             android:layout_gravity="bottom"
             android:onClick="observedPhotosFragment"
-            android:backgroundTint="@color/colorGreenLight" />
+            android:src="@mipmap/follow"
+            android:backgroundTint="@color/colorButton1" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="All Photos"
@@ -45,9 +46,11 @@
             android:textSize="10dp"
             android:layout_gravity="bottom"
             android:onClick="allPhotosFragment"
-            android:backgroundTint="@color/colorGreenLight" />
+            android:src="@mipmap/home"
+            android:backgroundTint="@color/colorButton1"
+            />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add photo"
@@ -56,9 +59,10 @@
             android:textSize="10dp"
             android:layout_gravity="bottom"
             android:onClick="addPhotoFragment"
-            android:backgroundTint="@color/colorGreenLight" />
+            android:src="@mipmap/add_image"
+            android:backgroundTint="@color/colorButton1" />
 
-        <Button
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="My profile"
@@ -67,7 +71,8 @@
             android:textSize="10dp"
             android:onClick="yourProfileFragment"
             android:layout_gravity="bottom"
-            android:backgroundTint="@color/colorGreenLight" />
+            android:src="@mipmap/profile"
+            android:backgroundTint="@color/colorButton1" />
     </LinearLayout>
 
 </LinearLayout>

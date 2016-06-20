@@ -63,7 +63,7 @@
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="50dp"
                         android:layout_margin="5dp"
                         android:id="@+id/photoRatingLayout">
 
@@ -78,7 +78,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/imageView6"
-                                android:src="@mipmap/general"
+                                android:src="@mipmap/gen"
                                 android:scaleType="fitCenter"
                                 android:layout_gravity="center" />
 
@@ -87,8 +87,8 @@
                                 android:layout_height="match_parent"
                                 android:text="1"
                                 android:id="@+id/oneGeneralTextView"
-                                android:textColor="#000000"
-                                android:textSize="30px"
+                                android:textColor="#b8000000"
+                                android:textSize="25dp"
                                 android:enabled="false"
                                 android:gravity="center"
                                 android:autoText="false"
@@ -106,7 +106,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/imageView7"
-                                android:src="@mipmap/similarity"
+                                android:src="@mipmap/similar"
                                 android:scaleType="fitCenter"
                                 android:layout_gravity="center" />
 
@@ -115,8 +115,8 @@
                                 android:layout_height="match_parent"
                                 android:text="1"
                                 android:id="@+id/oneSimilarityTextView"
-                                android:textColor="#000000"
-                                android:textSize="30px"
+                                android:textColor="#b8000000"
+                                android:textSize="25dp"
                                 android:enabled="false"
                                 android:gravity="center"
                                 android:autoText="false"
@@ -134,7 +134,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/imageView8"
-                                android:src="@mipmap/quality"
+                                android:src="@mipmap/qua"
                                 android:scaleType="fitCenter"
                                 android:layout_gravity="center" />
 
@@ -143,8 +143,8 @@
                                 android:layout_height="match_parent"
                                 android:text="1"
                                 android:id="@+id/oneQualityTextView"
-                                android:textColor="#000000"
-                                android:textSize="30px"
+                                android:textColor="#b8000000"
+                                android:textSize="25dp"
                                 android:enabled="false"
                                 android:gravity="center"
                                 android:autoText="false"
@@ -162,7 +162,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/imageView9"
-                                android:src="@mipmap/arrangement"
+                                android:src="@mipmap/arrant"
                                 android:scaleType="fitCenter"
                                 android:layout_gravity="center" />
 
@@ -171,8 +171,8 @@
                                 android:layout_height="match_parent"
                                 android:text="1"
                                 android:id="@+id/oneArrangementTextView"
-                                android:textColor="#000000"
-                                android:textSize="30px"
+                                android:textColor="#b8000000"
+                                android:textSize="25dp"
                                 android:enabled="false"
                                 android:gravity="center"
                                 android:autoText="false"

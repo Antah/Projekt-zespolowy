@@ -47,7 +47,7 @@
             android:text="SHOW"
             android:id="@+id/showAndFilterButton"
             android:layout_gravity="center"
-            android:backgroundTint="@color/colorGreenLight"
+            android:backgroundTint="@color/colorButton1"
             android:layout_marginRight="12dp" />
     </LinearLayout>
 

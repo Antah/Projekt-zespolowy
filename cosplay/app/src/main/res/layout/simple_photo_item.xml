@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:layout_margin="5dp"
         android:id="@+id/linearLayout2"
-        android:background="@color/colorBackgroundItem">
+        android:background="@color/colorBackgroundLight">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -33,8 +33,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
-                    android:layout_margin="5dp"
-                    android:id="@+id/itemRatingLayout">
+                    android:id="@+id/itemRatingLayout"
+                    android:padding="8dp"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -60,7 +61,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/imageView2"
-                            android:src="@mipmap/general"
+                            android:src="@mipmap/gen"
                             android:scaleType="fitCenter"
                             android:layout_gravity="center" />
 
@@ -69,7 +70,7 @@
                             android:layout_height="match_parent"
                             android:text="1"
                             android:id="@+id/generalTextView"
-                            android:textColor="#000000"
+                            android:textColor="#b8000000"
                             android:textSize="60px"
                             android:enabled="false"
                             android:gravity="center" />
@@ -98,7 +99,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/imageView3"
-                            android:src="@mipmap/similarity"
+                            android:src="@mipmap/similar"
                             android:scaleType="fitCenter"
                             android:layout_gravity="center" />
 
@@ -107,7 +108,7 @@
                             android:layout_height="match_parent"
                             android:text="1"
                             android:id="@+id/similarityTextView"
-                            android:textColor="#000000"
+                            android:textColor="#b8000000"
                             android:textSize="60px"
                             android:enabled="false"
                             android:gravity="center" />
@@ -136,7 +137,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/imageView4"
-                            android:src="@mipmap/quality"
+                            android:src="@mipmap/qua"
                             android:scaleType="fitCenter"
                             android:layout_gravity="center" />
 
@@ -145,7 +146,7 @@
                             android:layout_height="match_parent"
                             android:text="1"
                             android:id="@+id/qualityTextView"
-                            android:textColor="#000000"
+                            android:textColor="#b8000000"
                             android:textSize="60px"
                             android:enabled="false"
                             android:gravity="center" />
@@ -174,7 +175,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:id="@+id/imageView5"
-                            android:src="@mipmap/arrangement"
+                            android:src="@mipmap/arrant"
                             android:scaleType="fitCenter"
                             android:layout_gravity="center" />
 
@@ -183,7 +184,7 @@
                             android:layout_height="match_parent"
                             android:text="1"
                             android:id="@+id/arrangementTextView"
-                            android:textColor="#000000"
+                            android:textColor="#b8000000"
                             android:textSize="60px"
                             android:enabled="false"
                             android:gravity="center" />
